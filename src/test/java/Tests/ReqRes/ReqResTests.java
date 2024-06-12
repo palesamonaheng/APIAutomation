@@ -3,6 +3,7 @@ package Tests.ReqRes;
 import io.qameta.allure.*;
 import org.testng.annotations.Test;
 import static Common.CoomonTestData.Create_Success_Status_Code;
+import static Common.RequestBuilder.EmployeeID;
 import static Common.RequestBuilder.createEmployeeResponse;
 import static org.hamcrest.Matchers.*;
 
@@ -21,6 +22,8 @@ public class ReqResTests {
                 statusCode(Create_Success_Status_Code).
                 body("name", containsStringIgnoringCase("Nkosi")).
                 body("job", containsStringIgnoringCase("Test")).
-                body("id", notNullValue());
+                body("id", notNullValue()).
+                body("createdAt", notNullValue());
     }
+
 }
