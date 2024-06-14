@@ -52,7 +52,7 @@ public class DogsAPITests {
                 body("status", containsStringIgnoringCase("success"));
     }
     @Description("As an api user i want to return a random dog image from a breed collection, e.g. hound")
-    @Severity(SeverityLevel.CRITICAL)
+    @Severity(SeverityLevel.NORMAL)
     public void getRandomImagesFromBreedTests() {
         getRandomImagesFromBreedResponse().
                 then().
@@ -61,7 +61,7 @@ public class DogsAPITests {
                 body("status", containsStringIgnoringCase("success"));
     }
     @Description("As an api user i want to return a multiple random dog image from a breed collection, e.g. hound")
-    @Severity(SeverityLevel.CRITICAL)
+    @Severity(SeverityLevel.NORMAL)
     public void getMultipleImagesFromBreedTests() {
         getMultipleImagesFromBreedResponse().
                 then().
@@ -70,7 +70,7 @@ public class DogsAPITests {
                 body("status", containsStringIgnoringCase("success"));
     }
     @Description("As an api user i want to return an array of all the sub-breeds from a breed")
-    @Severity(SeverityLevel.CRITICAL)
+    @Severity(SeverityLevel.MINOR)
     public void getListOfAllSubBreedsTests() {
         getListOfAllSubBreedsResponse().
                 then().
@@ -88,7 +88,7 @@ public class DogsAPITests {
                 body("status", containsStringIgnoringCase("success"));
     }
     @Description("As an api user i want to return a single random image from a sub-breed collection")
-    @Severity(SeverityLevel.CRITICAL)
+    @Severity(SeverityLevel.MINOR)
     public void getSingleRandomImageSubBreedTests() {
         getSingleRandomImageSubBreedResponse().
                 then().
@@ -97,7 +97,7 @@ public class DogsAPITests {
                 body("status", containsStringIgnoringCase("success"));
     }
     @Description("As an api user i want to return multiple random image from a sub-breed collection")
-    @Severity(SeverityLevel.CRITICAL)
+    @Severity(SeverityLevel.NORMAL)
     public void getMultipleRandomImageSubBreedTests() {
         getMultipleRandomImageSubBreedResponse().
                 then().

@@ -32,12 +32,12 @@ public class ReqResTests {
         getListOfEmployeeResponse().
                 then().
                 assertThat().
-                statusCode(GetUser_List_Success_Status_Code);
-        //body("id", notNullValue());
-        //body("email", notNullValue();
-        //body("first_name", notNullValue().
-        //body("last_name", notNullValue().
-        // body("avatar", containsStringIgnoringCase("https://reqres.in/img/faces/2-image.jpg"));
+                statusCode(GetUser_List_Success_Status_Code).
+        body("id", notNullValue()).
+        body("email", notNullValue()).
+        body("first_name", notNullValue()).
+        body("last_name", notNullValue()).
+        body("avatar", notNullValue());
     }
 
     @Description("As an api user i want to get a single employee details")
@@ -69,14 +69,11 @@ public class ReqResTests {
 
     @Description("As an api user i want to update a single employee details")
     @Severity(SeverityLevel.NORMAL)
-    public void deleteSingleEmployeeTests() {
+    public void zdeleteSingleEmployeeTests() {
         deleteSingleEmployeeResponse().
                 then().
                 assertThat().
                 statusCode(delete_Single_User_Success_Status_Code);
-        //body("job", containsStringIgnoringCase("Update Test")).
-        //body("updatedAt", notNullValue());
-
     }
 
     @Description("As an api user i want to update a single employee details")
