@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 
 import java.util.Locale;
 
+import static Common.BasePaths.DogsAPI_baseURL;
 import static Common.BasePaths.ReqRes_baseURL;
 import static Common.ContentTypes.json_contentType;
 import static Common.PayloadBuilder.*;
@@ -88,6 +89,126 @@ public class RequestBuilder {
                 log().all().
                 extract().response();
         EmployeeID = response.jsonPath().getString("id");
+        return response;
+    }
+    public static Response getListOfAllBreedsResponse() {
+        Response response = given().
+                when().
+                body(getListOfAllBreedsObject()).
+                contentType(json_contentType).
+                log().all().
+                get(DogsAPI_baseURL + "/breeds/list/all").
+                then().
+                log().all().
+                extract().response();
+                return response;
+    }
+    public static Response getSingleRandomImageResponse() {
+        Response response = given().
+                when().
+                body(getSingleRandomImageObject()).
+                contentType(json_contentType).
+                log().all().
+                get(DogsAPI_baseURL + "/breeds/image/random").
+                then().
+                log().all().
+                extract().response();
+        return response;
+    }
+    public static Response getMultipleRandomImageResponse() {
+        Response response = given().
+                when().
+                body(getMultipleRandomImageObject()).
+                contentType(json_contentType).
+                log().all().
+                get(DogsAPI_baseURL + "/breeds/image/random/3").
+                then().
+                log().all().
+                extract().response();
+        return response;
+    }
+    public static Response getDogsImagesByBreedResponse() {
+        Response response = given().
+                when().
+                body(getDogsImagesByBreedObject()).
+                contentType(json_contentType).
+                log().all().
+                get(DogsAPI_baseURL + "/breed/hound/images").
+                then().
+                log().all().
+                extract().response();
+        return response;
+    }
+    public static Response getRandomImagesFromBreedResponse() {
+        Response response = given().
+                when().
+                body(getRandomImagesFromBreedObject()).
+                contentType(json_contentType).
+                log().all().
+                get(DogsAPI_baseURL + "/breed/hound/images/random").
+                then().
+                log().all().
+                extract().response();
+        return response;
+    }
+    public static Response getMultipleImagesFromBreedResponse() {
+        Response response = given().
+                when().
+                body(getMultipleImagesFromBreedObject()).
+                contentType(json_contentType).
+                log().all().
+                get(DogsAPI_baseURL + "/breed/hound/images/random/3").
+                then().
+                log().all().
+                extract().response();
+        return response;
+    }
+    public static Response getListOfAllSubBreedsResponse() {
+        Response response = given().
+                when().
+                body(getListOfAllSubBreedsObject()).
+                contentType(json_contentType).
+                log().all().
+                get(DogsAPI_baseURL + "/breed/hound/list").
+                then().
+                log().all().
+                extract().response();
+        return response;
+    }
+    public static Response getListOfAllSubBreedImagesResponse() {
+        Response response = given().
+                when().
+                body(getListOfAllSubBreedImagesObject()).
+                contentType(json_contentType).
+                log().all().
+                get(DogsAPI_baseURL + "/breed/hound/afghan/images").
+                then().
+                log().all().
+                extract().response();
+        return response;
+    }
+    public static Response getSingleRandomImageSubBreedResponse() {
+        Response response = given().
+                when().
+                body(getSingleRandomImageSubBreedObject()).
+                contentType(json_contentType).
+                log().all().
+                get(DogsAPI_baseURL + "/breed/hound/afghan/images/random").
+                then().
+                log().all().
+                extract().response();
+        return response;
+    }
+    public static Response getMultipleRandomImageSubBreedResponse() {
+        Response response = given().
+                when().
+                body(getMultipleRandomImageSubBreedObject()).
+                contentType(json_contentType).
+                log().all().
+                get(DogsAPI_baseURL + "/breed/hound/afghan/images/random/3").
+                then().
+                log().all().
+                extract().response();
         return response;
     }
 

@@ -25,6 +25,7 @@ public class ReqResTests {
                 body("id", notNullValue()).
                 body("createdAt", notNullValue());
     }
+
     @Description("As an api user i want to get a list of employees")
     @Severity(SeverityLevel.CRITICAL)
     public void getListOfEmployeeTests() {
@@ -32,12 +33,13 @@ public class ReqResTests {
                 then().
                 assertThat().
                 statusCode(GetUser_List_Success_Status_Code);
-                //body("id", notNullValue());
-                //body("email", notNullValue();
-                //body("first_name", notNullValue().
-                //body("last_name", notNullValue().
-               // body("avatar", containsStringIgnoringCase("https://reqres.in/img/faces/2-image.jpg"));
-        }
+        //body("id", notNullValue());
+        //body("email", notNullValue();
+        //body("first_name", notNullValue().
+        //body("last_name", notNullValue().
+        // body("avatar", containsStringIgnoringCase("https://reqres.in/img/faces/2-image.jpg"));
+    }
+
     @Description("As an api user i want to get a single employee details")
     @Severity(SeverityLevel.CRITICAL)
     public void getSingleEmployeeTests() {
@@ -45,12 +47,13 @@ public class ReqResTests {
                 then().
                 assertThat().
                 statusCode(Get_Single_User_Success_Status_Code);
-               // body("id", notNullValue()).
-               // body("email", containsStringIgnoringCase("janet.weaver@reqres.in")).
-               // body("first_name", containsStringIgnoringCase("janet")).
-               // body("last_name", containsStringIgnoringCase("WEAVER")).
-               // body("avatar", containsStringIgnoringCase("https://reqres.in/img/faces/2-image.jpg"));
+        // body("id", notNullValue()).
+        // body("email", containsStringIgnoringCase("janet.weaver@reqres.in")).
+        // body("first_name", containsStringIgnoringCase("janet")).
+        // body("last_name", containsStringIgnoringCase("WEAVER")).
+        // body("avatar", containsStringIgnoringCase("https://reqres.in/img/faces/2-image.jpg"));
     }
+
     @Description("As an api user i want to update a single employee details")
     @Severity(SeverityLevel.NORMAL)
     public void updateSingleEmployeeTests() {
@@ -58,11 +61,12 @@ public class ReqResTests {
                 then().
                 assertThat().
                 statusCode(Update_Single_User_Success_Status_Code);
-                //body("name", containsStringIgnoringCase("Nkosi")).
-                //body("job", containsStringIgnoringCase("Update Testing")).
-                //body("updatedAt", notNullValue());
+        //body("name", containsStringIgnoringCase("Nkosi")).
+        //body("job", containsStringIgnoringCase("Update Testing")).
+        //body("updatedAt", notNullValue());
 
-            }
+    }
+
     @Description("As an api user i want to update a single employee details")
     @Severity(SeverityLevel.NORMAL)
     public void deleteSingleEmployeeTests() {
@@ -70,10 +74,11 @@ public class ReqResTests {
                 then().
                 assertThat().
                 statusCode(delete_Single_User_Success_Status_Code);
-                //body("job", containsStringIgnoringCase("Update Test")).
-                //body("updatedAt", notNullValue());
+        //body("job", containsStringIgnoringCase("Update Test")).
+        //body("updatedAt", notNullValue());
 
     }
+
     @Description("As an api user i want to update a single employee details")
     @Severity(SeverityLevel.BLOCKER)
     public void singleEmployeeNotFoundTests() {

@@ -35,5 +35,44 @@ public class PayloadBuilder {
         JSONObject jsonObject = new JSONObject();
         return jsonObject;
     }
-
+    public static JSONObject getListOfAllBreedsObject() {
+        JSONObject jsonObject = new JSONObject();
+        return jsonObject;
+    }
+    public static JSONObject getSingleRandomImageObject() {
+        JSONObject jsonObject = new JSONObject();
+        return jsonObject;
+    }
+    public static JSONObject getMultipleRandomImageObject() {
+        JSONObject jsonObject = new JSONObject();
+        return jsonObject;
+    }
+    public static JSONObject getDogsImagesByBreedObject() {
+        JSONObject jsonObject = new JSONObject();
+        return jsonObject;
+    }
+    public static JSONObject getRandomImagesFromBreedObject() {
+        JSONObject jsonObject = new JSONObject();
+        return jsonObject;
+    }
+    public static JSONObject getMultipleImagesFromBreedObject() {
+        JSONObject jsonObject = new JSONObject();
+        return jsonObject;
+    }
+    public static JSONObject getListOfAllSubBreedsObject() {
+        JSONObject jsonObject = new JSONObject();
+        return jsonObject;
+    }
+    public static JSONObject getListOfAllSubBreedImagesObject() {
+        JSONObject jsonObject = new JSONObject();
+        return jsonObject;
+    }
+    public static JSONObject getSingleRandomImageSubBreedObject() {
+        JSONObject jsonObject = new JSONObject();
+        return jsonObject;
+    }
+    public static JSONObject getMultipleRandomImageSubBreedObject() {
+        JSONObject jsonObject = new JSONObject();
+        return jsonObject;
+    }
 }
