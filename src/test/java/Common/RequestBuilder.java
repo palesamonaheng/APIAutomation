@@ -3,6 +3,8 @@ package Common;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 
+import java.util.Locale;
+
 import static Common.BasePaths.ReqRes_baseURL;
 import static Common.ContentTypes.json_contentType;
 import static Common.PayloadBuilder.*;
@@ -10,9 +12,7 @@ import static io.restassured.RestAssured.*;
 
 public class RequestBuilder {
     public static String EmployeeID;
-
-
-    public static Response createEmployeeResponse() {
+       public static Response createEmployeeResponse() {
         Response response = given().
                 when().
                 body(createEmployeeObject()).
@@ -23,7 +23,6 @@ public class RequestBuilder {
                 log().all().
                 extract().response();
         EmployeeID = response.jsonPath().getString("id");
-
         return response;
     }
     public static Response getListOfEmployeeResponse() {
@@ -37,7 +36,6 @@ public class RequestBuilder {
                 log().all().
                 extract().response();
         EmployeeID = response.jsonPath().getString("id");
-
         return response;
     }
     public static Response getSingleEmployeeResponse() {
@@ -46,12 +44,11 @@ public class RequestBuilder {
                 body(getSingleEmployeeObject()).
                 contentType(json_contentType).
                 log().all().
-                get(ReqRes_baseURL + "/api/users").
+                get(ReqRes_baseURL + "/api/users/2").
                 then().
                 log().all().
                 extract().response();
         EmployeeID = response.jsonPath().getString("id");
-
         return response;
     }
     public static Response updateSingleEmployeeResponse() {
@@ -65,7 +62,32 @@ public class RequestBuilder {
                 log().all().
                 extract().response();
         EmployeeID = response.jsonPath().getString("id");
-
+        return response;
+    }
+    public static Response deleteSingleEmployeeResponse() {
+        Response response = given().
+                when().
+                body(deleteSingleEmployeeObject()).
+                contentType(json_contentType).
+                log().all().
+                get(ReqRes_baseURL + "/api/users/2").
+                then().
+                log().all().
+                extract().response();
+        EmployeeID = response.jsonPath().getString("id");
+        return response;
+    }
+    public static Response singleEmployeeNotFoundResponse() {
+        Response response = given().
+                when().
+                body(singleEmployeeNotFoundObject()).
+                contentType(json_contentType).
+                log().all().
+                get(ReqRes_baseURL + "/api/users/25").
+                then().
+                log().all().
+                extract().response();
+        EmployeeID = response.jsonPath().getString("id");
         return response;
     }
 

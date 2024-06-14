@@ -3,7 +3,7 @@ package Tests.ReqRes;
 import io.qameta.allure.*;
 import org.testng.annotations.Test;
 
-import static Common.CoomonTestData.*;
+import static Common.CommonTestData.*;
 import static Common.RequestBuilder.*;
 import static org.hamcrest.Matchers.*;
 
@@ -31,21 +31,26 @@ public class ReqResTests {
         getListOfEmployeeResponse().
                 then().
                 assertThat().
-                statusCode(Create_User_List_Success_Status_Code);
-               //body("avatar", containsStringIgnoringCase("https://reqres.in/img/faces/2-image.jpg"));
-               // body("id", notNullValue());
-    }
+                statusCode(GetUser_List_Success_Status_Code);
+                //body("id", notNullValue());
+                //body("email", notNullValue();
+                //body("first_name", notNullValue().
+                //body("last_name", notNullValue().
+               // body("avatar", containsStringIgnoringCase("https://reqres.in/img/faces/2-image.jpg"));
+        }
     @Description("As an api user i want to get a single employee details")
     @Severity(SeverityLevel.CRITICAL)
     public void getSingleEmployeeTests() {
         getSingleEmployeeResponse().
                 then().
                 assertThat().
-                statusCode(Create_User_List_Success_Status_Code);
-        //body("avatar", containsStringIgnoringCase("https://reqres.in/img/faces/2-image.jpg"));
-        // body("id", notNullValue());
+                statusCode(Get_Single_User_Success_Status_Code);
+               // body("id", notNullValue()).
+               // body("email", containsStringIgnoringCase("janet.weaver@reqres.in")).
+               // body("first_name", containsStringIgnoringCase("janet")).
+               // body("last_name", containsStringIgnoringCase("WEAVER")).
+               // body("avatar", containsStringIgnoringCase("https://reqres.in/img/faces/2-image.jpg"));
     }
-
     @Description("As an api user i want to update a single employee details")
     @Severity(SeverityLevel.NORMAL)
     public void updateSingleEmployeeTests() {
@@ -53,8 +58,31 @@ public class ReqResTests {
                 then().
                 assertThat().
                 statusCode(Update_Single_User_Success_Status_Code);
-                //body("job", containsStringIgnoringCase("Update Test")).
-               //body("updatedAt", notNullValue());
+                //body("name", containsStringIgnoringCase("Nkosi")).
+                //body("job", containsStringIgnoringCase("Update Testing")).
+                //body("updatedAt", notNullValue());
 
             }
+    @Description("As an api user i want to update a single employee details")
+    @Severity(SeverityLevel.NORMAL)
+    public void deleteSingleEmployeeTests() {
+        deleteSingleEmployeeResponse().
+                then().
+                assertThat().
+                statusCode(delete_Single_User_Success_Status_Code);
+                //body("job", containsStringIgnoringCase("Update Test")).
+                //body("updatedAt", notNullValue());
+
+    }
+    @Description("As an api user i want to update a single employee details")
+    @Severity(SeverityLevel.BLOCKER)
+    public void singleEmployeeNotFoundTests() {
+        singleEmployeeNotFoundResponse().
+                then().
+                assertThat().
+                statusCode(get_Single_User_Not_Found_Status_Code);
+        //body("job", containsStringIgnoringCase("Update Test")).
+        //body("updatedAt", notNullValue());
+
+    }
 }
