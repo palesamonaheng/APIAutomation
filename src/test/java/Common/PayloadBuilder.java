@@ -59,6 +59,18 @@ public class PayloadBuilder {
         jsonObject.put("email", "peter@klaven");
         return jsonObject;
     }
+    public static JSONObject singleResourceObject() {
+        JSONObject jsonObject = new JSONObject();
+        return jsonObject;
+    }
+    public static JSONObject singleResourceNotFoundObject() {
+        JSONObject jsonObject = new JSONObject();
+        return jsonObject;
+    }
+    public static JSONObject listResourcesObject() {
+        JSONObject jsonObject = new JSONObject();
+        return jsonObject;
+    }
 
     //START OF DOGS API PAYLOADS
 
@@ -102,4 +114,9 @@ public class PayloadBuilder {
         JSONObject jsonObject = new JSONObject();
         return jsonObject;
     }
+    public static JSONObject getBreedListObject() {
+        JSONObject jsonObject = new JSONObject();
+        return jsonObject;
+    }
+    //STARTING WEATHER API PAYLOADS
 }

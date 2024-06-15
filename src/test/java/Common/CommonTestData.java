@@ -13,7 +13,9 @@ public class CommonTestData {
     public static int display_Unsuccessful_Registration_Status_Code = 400;
     public static int display_Successful_Login_Status_Code = 200;
     public static int display_Unsuccessful_Login_Status_Code = 400;
-
+    public static int display_Single_Resource_Status_Code = 200;
+    public static int display_Single_Resource_Not_Found_Status_Code = 404;
+    public static int display_List_Resources_Status_Code = 200;
 
     //STARTING DOGS API STATUS CODES
 
@@ -27,4 +29,11 @@ public class CommonTestData {
     public static int display_List_All_Sub_Breeds_Images_Status_Code = 200;
     public static int display_Single_Random_Image_From_Sub_Breed_Status_Code = 200;
     public static int display_Multiple_Images_From_Sub_Breed_Status_Code = 200;
+    public static int display_Images_Of_Breed_List_Status_Code = 404;
+
+
+//STARTING THE WEATHER API STATUS CODES
+
+    public static int api_Authorization_Status_Code = 200;
+
 }

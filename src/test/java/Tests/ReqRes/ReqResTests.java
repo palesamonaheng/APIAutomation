@@ -129,4 +129,37 @@ public class ReqResTests {
         //body("updatedAt", notNullValue());
 
     }
+    @Description("As an api user i want to find a single user")
+    @Severity(SeverityLevel.BLOCKER)
+    public void fSingleResourceTests() {
+        singleResourceResponse().
+                then().
+                assertThat().
+                statusCode(display_Single_Resource_Status_Code);
+               // body("name", containsStringIgnoringCase("fuchsia rose"));
+        //body("updatedAt", notNullValue());
+
+    }
+    @Description("As an api user i don't want to find a single user")
+    @Severity(SeverityLevel.BLOCKER)
+    public void gSingleResourceNotFoundTests() {
+        singleResourceNotFoundResponse().
+                then().
+                assertThat().
+                statusCode(display_Single_Resource_Not_Found_Status_Code);
+        // body("name", containsStringIgnoringCase("fuchsia rose"));
+        //body("updatedAt", notNullValue());
+
+    }
+    @Description("As an api user i don't want to find a single user")
+    @Severity(SeverityLevel.BLOCKER)
+    public void hListResourceTests() {
+        listResourcesResponse().
+                then().
+                assertThat().
+                statusCode(display_List_Resources_Status_Code);
+        // body("name", containsStringIgnoringCase("fuchsia rose"));
+        //body("updatedAt", notNullValue());
+
+    }
 }

@@ -145,6 +145,45 @@ public class RequestBuilder {
         EmployeeID = response.jsonPath().getString("id");
         return response;
     }
+    public static Response singleResourceResponse() {
+        Response response = given().
+                when().
+                body(singleResourceObject()).
+                contentType(json_contentType).
+                log().all().
+                get(ReqRes_baseURL + "/api/unknown/2").
+                then().
+                log().all().
+                extract().response();
+        EmployeeID = response.jsonPath().getString("id");
+        return response;
+    }
+    public static Response singleResourceNotFoundResponse() {
+        Response response = given().
+                when().
+                body(singleResourceNotFoundObject()).
+                contentType(json_contentType).
+                log().all().
+                get(ReqRes_baseURL + "/api/unknown/23").
+                then().
+                log().all().
+                extract().response();
+        EmployeeID = response.jsonPath().getString("id");
+        return response;
+    }
+    public static Response listResourcesResponse() {
+        Response response = given().
+                when().
+                body(listResourcesObject()).
+                contentType(json_contentType).
+                log().all().
+                get(ReqRes_baseURL + "/api/unknown").
+                then().
+                log().all().
+                extract().response();
+        EmployeeID = response.jsonPath().getString("id");
+        return response;
+    }
 
     //START OF DOGS API REQUEST BUILDERS
     public static Response getListOfAllBreedsResponse() {
@@ -262,6 +301,20 @@ public class RequestBuilder {
                 contentType(json_contentType).
                 log().all().
                 get(DogsAPI_baseURL + "/breed/hound/afghan/images/random/3").
+                then().
+                log().all().
+                extract().response();
+        return response;
+    }
+    public static Response getBreedListResponse() {
+        Response response = given().
+                when().
+                body(getBreedListObject()).
+                contentType(json_contentType).
+                log().all().
+                get(DogsAPI_baseURL + "/breed/\n" +
+                        "Affenpinscher\n" +
+                        "/images/random").
                 then().
                 log().all().
                 extract().response();
