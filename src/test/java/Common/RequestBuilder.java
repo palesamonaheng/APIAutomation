@@ -12,6 +12,8 @@ import static Common.PayloadBuilder.*;
 import static io.restassured.RestAssured.*;
 
 public class RequestBuilder {
+
+    //START OF REQRES API REQUEST BUILDERS
     public static String EmployeeID;
        public static Response createEmployeeResponse() {
         Response response = given().
@@ -32,7 +34,7 @@ public class RequestBuilder {
                 body(getListOfEmployeeObject()).
                 contentType(json_contentType).
                 log().all().
-                get(ReqRes_baseURL + "/api/users").
+                get(ReqRes_baseURL + "/api/users?page=2").
                 then().
                 log().all().
                 extract().response();
@@ -91,6 +93,60 @@ public class RequestBuilder {
         EmployeeID = response.jsonPath().getString("id");
         return response;
     }
+    public static Response successfulRegisterResponse() {
+        Response response = given().
+                when().
+                body(putSuccessfulRegisterObject()).
+                contentType(json_contentType).
+                log().all().
+                post(ReqRes_baseURL + "/api/register").
+                then().
+                log().all().
+                extract().response();
+        EmployeeID = response.jsonPath().getString("id");
+        return response;
+    }
+    public static Response unsuccessfulRegisterResponse() {
+        Response response = given().
+                when().
+                body(putUnsuccessfulRegisterObject()).
+                contentType(json_contentType).
+                log().all().
+                post(ReqRes_baseURL + "/api/register").
+                then().
+                log().all().
+                extract().response();
+        EmployeeID = response.jsonPath().getString("id");
+        return response;
+    }
+    public static Response successfulLoginResponse() {
+        Response response = given().
+                when().
+                body(successfulLoginObject()).
+                contentType(json_contentType).
+                log().all().
+                post(ReqRes_baseURL + "/api/login").
+                then().
+                log().all().
+                extract().response();
+        EmployeeID = response.jsonPath().getString("id");
+        return response;
+    }
+    public static Response unsuccessfulLoginResponse() {
+        Response response = given().
+                when().
+                body(unsuccessfulLoginObject()).
+                contentType(json_contentType).
+                log().all().
+                post(ReqRes_baseURL + "/api/login").
+                then().
+                log().all().
+                extract().response();
+        EmployeeID = response.jsonPath().getString("id");
+        return response;
+    }
+
+    //START OF DOGS API REQUEST BUILDERS
     public static Response getListOfAllBreedsResponse() {
         Response response = given().
                 when().

@@ -5,6 +5,8 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 public class PayloadBuilder {
+
+    //START OF REQRES API PAYLOADS
     public static JSONObject createEmployeeObject() {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("name", "Nkosi");
@@ -35,6 +37,31 @@ public class PayloadBuilder {
         JSONObject jsonObject = new JSONObject();
         return jsonObject;
     }
+    public static JSONObject putSuccessfulRegisterObject() {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("email", "eve.holt@reqres.in");
+        jsonObject.put("password", "pistol");
+        return jsonObject;
+    }
+    public static JSONObject putUnsuccessfulRegisterObject() {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("email", "sydney@fife");
+        return jsonObject;
+    }
+    public static JSONObject successfulLoginObject() {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("email", "eve.holt@reqres.in");
+        jsonObject.put("password", "cityslicka");
+        return jsonObject;
+    }
+    public static JSONObject unsuccessfulLoginObject() {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("email", "peter@klaven");
+        return jsonObject;
+    }
+
+    //START OF DOGS API PAYLOADS
+
     public static JSONObject getListOfAllBreedsObject() {
         JSONObject jsonObject = new JSONObject();
         return jsonObject;
