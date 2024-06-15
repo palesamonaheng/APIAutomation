@@ -18,8 +18,14 @@ public class PayloadBuilder {
         JSONObject jsonObject = new  JSONObject();
         jsonObject.put("name", "Nkosi");
         jsonObject.put("job", "Test Analyst");
-        jsonObject.put("surname", "cele");
         return jsonObject;
 
+    }
+    public static JSONObject patchEmployeeObject() {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("name", "Nkosi");
+        jsonObject.put("job", "Test Analyst");
+        jsonObject.put("surname", "cele");
+        return jsonObject;
     }
 }

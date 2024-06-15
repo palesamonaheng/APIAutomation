@@ -6,6 +6,7 @@ import static Common.CoomonTestData.Create_Success_Status_Code;
 import static Common.RequestBuilder.*;
 import static org.hamcrest.Matchers.containsStringIgnoringCase;
 import static Common.CoomonTestData.Create_Success_Status_Code2;
+import static Common.CoomonTestData.Create_Success_Status_Code3;
 
 
 @Test
@@ -35,6 +36,19 @@ public class ReqResTests {
                        statusCode(Create_Success_Status_Code2);
 
            }
+    @Test
+    @Feature("ReqRes")
+    @Story("patch some details")
+
+    @Description("As an api user i want to patch surname of Employee")
+    @Severity(SeverityLevel.CRITICAL)
+    public void patchEmployeeTests() {
+        patchEmployeeResponse().
+                then().
+                assertThat().
+                statusCode(Create_Success_Status_Code3);
+
+    }
 
            @Test
            public void test() {
