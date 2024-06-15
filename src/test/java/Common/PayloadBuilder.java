@@ -14,5 +14,12 @@ public class PayloadBuilder {
         return jsonObject;
 
     }
+    public static JSONObject putEmployeeObject() {
+        JSONObject jsonObject = new  JSONObject();
+        jsonObject.put("name", "Nkosi");
+        jsonObject.put("job", "Test Analyst");
+        jsonObject.put("surname", "cele");
+        return jsonObject;
 
+    }
 }
