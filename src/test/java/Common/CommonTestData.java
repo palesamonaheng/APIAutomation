@@ -34,6 +34,6 @@ public class CommonTestData {
 
 //STARTING THE WEATHER API STATUS CODES
 
-    public static int api_Authorization_Status_Code = 200;
+  //  public static int api_Authorization_Status_Code = 200;
 
 }

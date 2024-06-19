@@ -15,7 +15,7 @@ public class ReqResTests {
 
     @Description("As an api user i want to create a new employee")
     @Severity(SeverityLevel.CRITICAL)
-    public void bCreateEmployeeTests() {
+    public void CreateEmployeeTests() {
         createEmployeeResponse().
                 then().
                 assertThat().
@@ -28,31 +28,30 @@ public class ReqResTests {
 
     @Description("As an api user i want to get a list of employees")
     @Severity(SeverityLevel.CRITICAL)
-    public void cGetListOfEmployeeTests() {
+    public void GetListOfEmployeeTests() {
         getListOfEmployeeResponse().
                 then().
                 assertThat().
-                statusCode(GetUser_List_Success_Status_Code);
-        /*body("id", notNullValue());
-        body("email", notNullValue()).
-        body("first_name", notNullValue()).
-        body("last_name", notNullValue()).
-        body("avatar", notNullValue());
-          */
+                statusCode(GetUser_List_Success_Status_Code).
+        body("data.id", notNullValue()).
+        body("data.email", notNullValue()).
+        body("data.first_name", notNullValue()).
+        body("data.last_name", notNullValue()).
+        body("data.avatar", notNullValue());
     }
 
     @Description("As an api user i want to get a single employee details")
     @Severity(SeverityLevel.CRITICAL)
-    public void dGetSingleEmployeeTests() {
+    public void GetSingleEmployeeTests() {
         getSingleEmployeeResponse().
                 then().
                 assertThat().
-                statusCode(Get_Single_User_Success_Status_Code);
-         //body("id", notNullValue());
-        // body("email", containsStringIgnoringCase("janet.weaver@reqres.in")).
-        // body("first_name", containsStringIgnoringCase("janet")).
-        // body("last_name", containsStringIgnoringCase("WEAVER")).
-        // body("avatar", containsStringIgnoringCase("https://reqres.in/img/faces/2-image.jpg"));
+                statusCode(Get_Single_User_Success_Status_Code).
+         body("data.id", notNullValue()).
+         body("data.email", containsStringIgnoringCase("janet.weaver@reqres.in")).
+         body("data.first_name", containsStringIgnoringCase("janet")).
+         body("data.last_name", containsStringIgnoringCase("WEAVER")).
+         body("data.avatar", containsStringIgnoringCase("https://reqres.in/img/faces/2-image.jpg"));
     }
 
     @Description("As an api user i want to update a single employee details")
@@ -61,10 +60,10 @@ public class ReqResTests {
         updateSingleEmployeeResponse().
                 then().
                 assertThat().
-                statusCode(Update_Single_User_Success_Status_Code);
-        //body("name", containsStringIgnoringCase("Nkosi"));
-        //body("job", containsStringIgnoringCase("Update Testing")).
-        //body("updatedAt", notNullValue());
+                statusCode(Update_Single_User_Success_Status_Code).
+        body("data.name", containsStringIgnoringCase("Nkosi")).
+        body("data.job", containsStringIgnoringCase("Update Testing")).
+        body("data.updatedAt", notNullValue());
 
     }
 
@@ -79,7 +78,7 @@ public class ReqResTests {
 
     @Description("As an api user i don't want to return single employee details")
     @Severity(SeverityLevel.BLOCKER)
-    public void eSingleEmployeeNotFoundTests() {
+    public void SingleEmployeeNotFoundTests() {
         singleEmployeeNotFoundResponse().
                 then().
                 assertThat().
@@ -93,7 +92,7 @@ public class ReqResTests {
                 assertThat().
                 statusCode(display_Successful_Registration_Status_Code).
         body("token", containsStringIgnoringCase("QpwL5tke4Pnpja7X4"));
-        //body("updatedAt", notNullValue());
+        //body("data.updatedAt", notNullValue());
 
     }
     @Description("As an api user i want to do a unsuccessful registration")
@@ -103,8 +102,8 @@ public class ReqResTests {
                 then().
                 assertThat().
                 statusCode(display_Unsuccessful_Registration_Status_Code).
-                body("error", containsStringIgnoringCase("Missing password"));
-        //body("updatedAt", notNullValue());
+                body("error", containsStringIgnoringCase("Missing password")).
+                body("data.updatedAt", notNullValue());
 
     }
     @Description("As an api user i want to do a successful login")
@@ -115,7 +114,7 @@ public class ReqResTests {
                 assertThat().
                 statusCode(display_Successful_Login_Status_Code).
                 body("token", containsStringIgnoringCase("QpwL5tke4Pnpja7X4"));
-        //body("updatedAt", notNullValue());
+        //body("data.updatedAt", notNullValue());
 
     }
     @Description("As an api user i want to do a successful login")
@@ -126,7 +125,7 @@ public class ReqResTests {
                 assertThat().
                 statusCode(display_Unsuccessful_Login_Status_Code).
                 body("error", containsStringIgnoringCase("Missing password"));
-        //body("updatedAt", notNullValue());
+        //body("data.updatedAt", notNullValue());
 
     }
     @Description("As an api user i want to find a single user")
@@ -135,9 +134,9 @@ public class ReqResTests {
         singleResourceResponse().
                 then().
                 assertThat().
-                statusCode(display_Single_Resource_Status_Code);
-               // body("name", containsStringIgnoringCase("fuchsia rose"));
-        //body("updatedAt", notNullValue());
+                statusCode(display_Single_Resource_Status_Code).
+        body("data.name", containsStringIgnoringCase("fuchsia rose"));
+        //body("data.updatedAt", notNullValue());
 
     }
     @Description("As an api user i don't want to find a single user")
@@ -146,9 +145,9 @@ public class ReqResTests {
         singleResourceNotFoundResponse().
                 then().
                 assertThat().
-                statusCode(display_Single_Resource_Not_Found_Status_Code);
-        // body("name", containsStringIgnoringCase("fuchsia rose"));
-        //body("updatedAt", notNullValue());
+                statusCode(display_Single_Resource_Not_Found_Status_Code).
+        body("data.name", containsStringIgnoringCase("fuchsia rose"));
+       // body("data.updatedAt", notNullValue());
 
     }
     @Description("As an api user i don't want to find a single user")
@@ -157,9 +156,9 @@ public class ReqResTests {
         listResourcesResponse().
                 then().
                 assertThat().
-                statusCode(display_List_Resources_Status_Code);
-        // body("name", containsStringIgnoringCase("fuchsia rose"));
-        //body("updatedAt", notNullValue());
+                statusCode(display_List_Resources_Status_Code).
+        body("data.name", containsStringIgnoringCase("fuchsia rose"));
+        //body("data.updatedAt", notNullValue());
 
     }
 }

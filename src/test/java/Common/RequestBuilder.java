@@ -44,7 +44,7 @@ public class RequestBuilder {
     public static Response getSingleEmployeeResponse() {
         Response response = given().
                 when().
-                body(getSingleEmployeeObject()).
+               body(getSingleEmployeeObject()).
                 contentType(json_contentType).
                 log().all().
                 get(ReqRes_baseURL + "/api/users/2").
@@ -70,7 +70,7 @@ public class RequestBuilder {
     public static Response deleteSingleEmployeeResponse() {
         Response response = given().
                 when().
-                body(deleteSingleEmployeeObject()).
+               body(deleteSingleEmployeeObject()).
                 contentType(json_contentType).
                 log().all().
                 get(ReqRes_baseURL + "/api/users/2").
@@ -83,7 +83,7 @@ public class RequestBuilder {
     public static Response singleEmployeeNotFoundResponse() {
         Response response = given().
                 when().
-                body(singleEmployeeNotFoundObject()).
+               body(singleEmployeeNotFoundObject()).
                 contentType(json_contentType).
                 log().all().
                 get(ReqRes_baseURL + "/api/users/25").
@@ -96,7 +96,7 @@ public class RequestBuilder {
     public static Response successfulRegisterResponse() {
         Response response = given().
                 when().
-                body(putSuccessfulRegisterObject()).
+              body(putSuccessfulRegisterObject()).
                 contentType(json_contentType).
                 log().all().
                 post(ReqRes_baseURL + "/api/register").
@@ -109,7 +109,7 @@ public class RequestBuilder {
     public static Response unsuccessfulRegisterResponse() {
         Response response = given().
                 when().
-                body(putUnsuccessfulRegisterObject()).
+               body(putUnsuccessfulRegisterObject()).
                 contentType(json_contentType).
                 log().all().
                 post(ReqRes_baseURL + "/api/register").
@@ -122,7 +122,7 @@ public class RequestBuilder {
     public static Response successfulLoginResponse() {
         Response response = given().
                 when().
-                body(successfulLoginObject()).
+               body(successfulLoginObject()).
                 contentType(json_contentType).
                 log().all().
                 post(ReqRes_baseURL + "/api/login").
@@ -135,7 +135,7 @@ public class RequestBuilder {
     public static Response unsuccessfulLoginResponse() {
         Response response = given().
                 when().
-                body(unsuccessfulLoginObject()).
+               body(unsuccessfulLoginObject()).
                 contentType(json_contentType).
                 log().all().
                 post(ReqRes_baseURL + "/api/login").
@@ -148,7 +148,7 @@ public class RequestBuilder {
     public static Response singleResourceResponse() {
         Response response = given().
                 when().
-                body(singleResourceObject()).
+               body(singleResourceObject()).
                 contentType(json_contentType).
                 log().all().
                 get(ReqRes_baseURL + "/api/unknown/2").
@@ -249,7 +249,7 @@ public class RequestBuilder {
     public static Response getMultipleImagesFromBreedResponse() {
         Response response = given().
                 when().
-                body(getMultipleImagesFromBreedObject()).
+               body(getMultipleImagesFromBreedObject()).
                 contentType(json_contentType).
                 log().all().
                 get(DogsAPI_baseURL + "/breed/hound/images/random/3").
@@ -261,7 +261,7 @@ public class RequestBuilder {
     public static Response getListOfAllSubBreedsResponse() {
         Response response = given().
                 when().
-                body(getListOfAllSubBreedsObject()).
+               body(getListOfAllSubBreedsObject()).
                 contentType(json_contentType).
                 log().all().
                 get(DogsAPI_baseURL + "/breed/hound/list").
@@ -285,7 +285,7 @@ public class RequestBuilder {
     public static Response getSingleRandomImageSubBreedResponse() {
         Response response = given().
                 when().
-                body(getSingleRandomImageSubBreedObject()).
+               body(getSingleRandomImageSubBreedObject()).
                 contentType(json_contentType).
                 log().all().
                 get(DogsAPI_baseURL + "/breed/hound/afghan/images/random").
@@ -297,7 +297,7 @@ public class RequestBuilder {
     public static Response getMultipleRandomImageSubBreedResponse() {
         Response response = given().
                 when().
-                body(getMultipleRandomImageSubBreedObject()).
+               body(getMultipleRandomImageSubBreedObject()).
                 contentType(json_contentType).
                 log().all().
                 get(DogsAPI_baseURL + "/breed/hound/afghan/images/random/3").
@@ -309,7 +309,7 @@ public class RequestBuilder {
     public static Response getBreedListResponse() {
         Response response = given().
                 when().
-                body(getBreedListObject()).
+               body(getBreedListObject()).
                 contentType(json_contentType).
                 log().all().
                 get(DogsAPI_baseURL + "/breed/\n" +

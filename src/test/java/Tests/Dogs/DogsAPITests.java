@@ -8,6 +8,7 @@ import static Common.PayloadBuilder.getMultipleRandomImageObject;
 import static Common.PayloadBuilder.getSingleRandomImageObject;
 import static Common.RequestBuilder.*;
 import static org.hamcrest.Matchers.containsStringIgnoringCase;
+import static org.hamcrest.core.IsNull.notNullValue;
 
 @Test
 @Feature("DogsAPITests")
@@ -20,9 +21,10 @@ public class DogsAPITests {
                 then().
                 assertThat().
                 statusCode(get_List_of_All_Breeds_Status_Code).
-        body("status", containsStringIgnoringCase("success"));
-        //body("updatedAt", notNullValue());
+        body("status", containsStringIgnoringCase("success")).
+        body("updatedAt", notNullValue());
     }
+    //@Test(priority = 1)
     @Description("As an api user i want to display single random image from all dogs collection")
     @Severity(SeverityLevel.BLOCKER)
     public void bGetSingleRandomImageTests() {
@@ -31,7 +33,7 @@ public class DogsAPITests {
                 assertThat().
                 statusCode(display_Single_Random_Image_Status_Code).
                 body("status", containsStringIgnoringCase("success"));
-        //body("updatedAt", notNullValue());
+          //body("data.updatedAt", notNullValue());
     }
     @Description("As an api user i want to display a multiple random image from all dogs collection")
     @Severity(SeverityLevel.CRITICAL)
