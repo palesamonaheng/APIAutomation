@@ -3,10 +3,11 @@ package Tests.ReqRes;
 import io.qameta.allure.*;
 import org.testng.annotations.Test;
 import static Common.CoomonTestData.Create_Success_Status_Code;
+import static Common.CoomonTestData.get_Success_Status_Code;
 import static Common.RequestBuilder.EmployeeID;
 import static Common.RequestBuilder.createEmployeeResponse;
 import static org.hamcrest.Matchers.*;
-
+import static Common.RequestBuilder.getEmployeeResponse;
 
 @Test
 @Feature("ReqRes")
@@ -20,10 +21,18 @@ public class ReqResTests {
                 then().
                 assertThat().
                 statusCode(Create_Success_Status_Code).
-                body("name", containsStringIgnoringCase("Nkosi")).
-                body("job", containsStringIgnoringCase("Test")).
+                 body("name", containsStringIgnoringCase("Mak")).
+                body("job", containsStringIgnoringCase("Data Analyst")).
                 body("id", notNullValue()).
                 body("createdAt", notNullValue());
     }
-
+    @Test(priority = 1)
+    @Feature("ReqRes get")
+    @Story("Get new employee created")
+    @Description("As an employer want to get new hired employees")
+    @Severity(SeverityLevel.BLOCKER)
+    public void getEmployeeTests() {
+        getEmployeeResponse().
+                getBody();
+    }
 }

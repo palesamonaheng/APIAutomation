@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import static Common.BasePaths.ReqRes_baseURL;
 import static Common.ContentTypes.json_contentType;
 import static Common.PayloadBuilder.createEmployeeObject;
+import static Common.PayloadBuilder.getEmployeeObject;
 import static io.restassured.RestAssured.*;
 
 public class RequestBuilder {
@@ -26,4 +27,29 @@ public class RequestBuilder {
         return response;
     }
 
+    public static Response getEmployeeResponse() {
+        return given().
+                when().
+                body(getEmployeeObject()).
+                contentType(json_contentType).
+                log().all().
+                get(ReqRes_baseURL + "/api/users"+EmployeeID).
+                then().
+                log().all().
+                extract().response();
+    }
+
+
+   public static Response updateEmployeeResponse() {
+    return given().
+            when().
+            body(getEmployeeObject()).
+            contentType(json_contentType).
+            log().all().
+            get(ReqRes_baseURL + "/api/users"+EmployeeID).
+            then().
+            log().all().
+            extract().response();
 }
+}
+
