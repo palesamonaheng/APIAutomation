@@ -24,7 +24,7 @@ public class PayloadBuilder {
     }
     public static JSONObject updateSingleEmployeeObject() {
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("Name", "Nkosi");
+        jsonObject.put("name", "Nkosi");
         jsonObject.put("job", "Update Testing");
         jsonObject.put("updatedAt", "2024-06-13T17:40:52.269Z");
         return jsonObject;

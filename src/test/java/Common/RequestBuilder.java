@@ -60,7 +60,7 @@ public class RequestBuilder {
                 body(updateSingleEmployeeObject()).
                 contentType(json_contentType).
                 log().all().
-                get(ReqRes_baseURL + "/api/users").
+                put(ReqRes_baseURL + "/api/users/2").
                 then().
                 log().all().
                 extract().response();

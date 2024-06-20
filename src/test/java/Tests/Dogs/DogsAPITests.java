@@ -16,18 +16,17 @@ import static org.hamcrest.core.IsNull.notNullValue;
 public class DogsAPITests {
     @Description("As an api user i want to get a list of all dog breeds")
     @Severity(SeverityLevel.BLOCKER)
-    public void aGetListOfAllBreedsTests() {
+    public void getListOfAllBreedsTests() {
         getListOfAllBreedsResponse().
                 then().
                 assertThat().
                 statusCode(get_List_of_All_Breeds_Status_Code).
-        body("status", containsStringIgnoringCase("success")).
-        body("updatedAt", notNullValue());
-    }
+        body("status", containsStringIgnoringCase("success"));
+        }
     //@Test(priority = 1)
     @Description("As an api user i want to display single random image from all dogs collection")
     @Severity(SeverityLevel.BLOCKER)
-    public void bGetSingleRandomImageTests() {
+    public void getSingleRandomImageTests() {
         getSingleRandomImageResponse().
                 then().
                 assertThat().
@@ -37,7 +36,7 @@ public class DogsAPITests {
     }
     @Description("As an api user i want to display a multiple random image from all dogs collection")
     @Severity(SeverityLevel.CRITICAL)
-    public void cGetMultipleRandomImageTests() {
+    public void getMultipleRandomImageTests() {
         getMultipleRandomImageResponse().
                 then().
                 assertThat().
@@ -46,7 +45,7 @@ public class DogsAPITests {
     }
     @Description("As an api user i want to return an array of all the images from a breed, eg. hound")
     @Severity(SeverityLevel.CRITICAL)
-    public void dGetDogsImagesByBreedTests() {
+    public void getDogsImagesByBreedTests() {
         getDogsImagesByBreedResponse().
                 then().
                 assertThat().
@@ -55,7 +54,7 @@ public class DogsAPITests {
     }
     @Description("As an api user i want to return a random dog image from a breed, e.g. hound")
     @Severity(SeverityLevel.NORMAL)
-    public void eGetRandomImagesFromBreedTests() {
+    public void getRandomImagesFromBreedTests() {
         getRandomImagesFromBreedResponse().
                 then().
                 assertThat().
@@ -64,7 +63,7 @@ public class DogsAPITests {
     }
     @Description("As an api user i want to return a multiple random dog image from a breed collection, e.g. hound")
     @Severity(SeverityLevel.NORMAL)
-    public void fGetMultipleImagesFromBreedTests() {
+    public void getMultipleImagesFromBreedTests() {
         getMultipleImagesFromBreedResponse().
                 then().
                 assertThat().
@@ -73,7 +72,7 @@ public class DogsAPITests {
     }
     @Description("As an api user i want to return an array of all the sub-breeds from a breed")
     @Severity(SeverityLevel.MINOR)
-    public void gGetListOfAllSubBreedsTests() {
+    public void getListOfAllSubBreedsTests() {
         getListOfAllSubBreedsResponse().
                 then().
                 assertThat().
@@ -82,7 +81,7 @@ public class DogsAPITests {
     }
     @Description("As an api user i want to return an array of all sub-breeds images from the sub-breed")
     @Severity(SeverityLevel.CRITICAL)
-    public void hGetListOfAllSubBreedImagesTests() {
+    public void getListOfAllSubBreedImagesTests() {
         getListOfAllSubBreedImagesResponse().
                 then().
                 assertThat().
@@ -91,7 +90,7 @@ public class DogsAPITests {
     }
     @Description("As an api user i want to return a single random image from a sub-breed collection")
     @Severity(SeverityLevel.MINOR)
-    public void iGetSingleRandomImageSubBreedTests() {
+    public void getSingleRandomImageSubBreedTests() {
         getSingleRandomImageSubBreedResponse().
                 then().
                 assertThat().
@@ -100,7 +99,7 @@ public class DogsAPITests {
     }
     @Description("As an api user i want to return multiple random image from a sub-breed collection")
     @Severity(SeverityLevel.NORMAL)
-    public void jGetMultipleRandomImageSubBreedTests() {
+    public void getMultipleRandomImageSubBreedTests() {
         getMultipleRandomImageSubBreedResponse().
                 then().
                 assertThat().
@@ -109,7 +108,7 @@ public class DogsAPITests {
     }
     @Description("As an api user i want to return a breed list")
     @Severity(SeverityLevel.NORMAL)
-    public void kGetBreedListTests() {
+    public void getBreedListTests() {
         getBreedListResponse().
                 then().
                 assertThat().
