@@ -10,12 +10,12 @@ public class LearnJSON {
         System.out.println("JSON");
         System.out.println("""
                 What is JSON?:
-                                
+                               \s
                 JSON stands for JavaScript Object Notation.
                 It is a lightweight data-interchange format that is easy for humans to read and write and easy for machines to parse and generate.
                 JSON is often used to transmit data between a server and a web application, but it's also used for configuration files and other data storage needs.
                 JSON Syntax:
-                                
+                               \s
                 JSON data is represented as key/value pairs.
                 Data is separated by commas.
                 Curly braces {} hold objects.
@@ -23,7 +23,7 @@ public class LearnJSON {
                 Keys and string values are enclosed in double quotes " ".
                 Keys are strings.
                 Values can be strings, numbers, objects, arrays, booleans, or null.
-                
+               \s
                 Example:
                 {
                   "name": "John",
@@ -35,21 +35,21 @@ public class LearnJSON {
                   },
                   "languages": ["Java", "JavaScript", "Python"]
                 }
-                
+               \s
                 Key Concepts:
-                                
+                               \s
                 Objects: A collection of key/value pairs enclosed in curly braces.
                 Arrays: An ordered list of values enclosed in square brackets.
                 Strings: A sequence of characters enclosed in double quotes.
                 Numbers: Integer or floating-point values.
                 Boolean: Represents true or false.
                 Null: Represents an empty value.
-                
-                Common Use Cases:             
+               \s
+                Common Use Cases:            \s
                 API Communication - JSON is widely used in web APIs for sending and receiving data between the client and the server.
                 Configuration Files - Many applications use JSON for configuration settings.
                 Data Storage - JSON files are often used to store and exchange structured data.
-                """);
+               \s""");
 
         System.out.printf("%nSerializing and Deserializing data%n");
 
