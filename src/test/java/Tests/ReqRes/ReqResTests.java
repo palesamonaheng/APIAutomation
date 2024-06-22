@@ -42,7 +42,7 @@ public class ReqResTests {
     }
 
     @Test
-    @Description
+    @Description("As an Api User I need to be able to get single employee details")
     @Severity(SeverityLevel.CRITICAL)
     public void getSingleEmployeeTests() {
         getSingleEmployeeResponse().
