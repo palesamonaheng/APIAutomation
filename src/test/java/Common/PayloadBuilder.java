@@ -37,13 +37,18 @@ public class PayloadBuilder {
         return jsonObject;
     }
 
+    public static JSONObject employeeUnsuccessfulloginObject(){
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("email", "peter@klaven");
+        return  jsonObject;
+
+    }
     public static JSONObject updateSingleEmployeeObject() {
 
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("name", "Nkosi");
         jsonObject.put("job", "Test Analyst");
-        jsonObject.put("surname", "Mthembu");
-        jsonObject.put("updatedAt", "2024-06-20T19:13:46.906Z");
+        jsonObject.put("surname", "Cele");
         return jsonObject;
 
     }
@@ -56,9 +61,14 @@ public class PayloadBuilder {
 
     public static JSONObject successfulRegisterObject() {
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("id", 4);
-        jsonObject.put("token","QpwL5tke4Pnpja7X4");
+        jsonObject.put("email", "eve.holt@reqres.in");
+        jsonObject.put("password","pistol");
 
+        return jsonObject;
+    }
+
+    public static JSONObject singleUserNotFoundObject(){
+        JSONObject jsonObject = new JSONObject();
         return jsonObject;
     }
 }

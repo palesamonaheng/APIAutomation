@@ -26,6 +26,7 @@ public class ReqResTests {
                 body("createdAt", notNullValue());
     }
 
+    @Test(priority = 1)
     @Description("As an Api User, I want to Get a List Of Employees")
     @Severity(SeverityLevel.NORMAL)
     public void getListOfEmployeeTests() {
@@ -33,6 +34,11 @@ public class ReqResTests {
                 then().
                 assertThat().
                 statusCode(GetEmployeeList_Success_Status_Code).
+                body("page", notNullValue()).
+                body("per_page", notNullValue()).
+                body("total", notNullValue()).
+                body("total_pages" ,notNullValue()).
+                body("data" , notNullValue()).
                 body("data.id", notNullValue()).
                 body("data.email", notNullValue()).
                 body("data.first_name", notNullValue()).
@@ -40,8 +46,7 @@ public class ReqResTests {
                 body("data.avatar", notNullValue());
 
     }
-
-    @Test
+    @Test(priority = 2)
     @Description("As an Api User I need to be able to get single employee details")
     @Severity(SeverityLevel.CRITICAL)
     public void getSingleEmployeeTests() {
@@ -54,10 +59,9 @@ public class ReqResTests {
                 body("data.first_name", notNullValue()).
                 body("data.last_name", notNullValue()).
                 body("data.avatar", notNullValue());
-
     }
 
-    @Test
+    @Test(priority = 3)
     @Description("As an Api User, I want to login successfully")
     @Severity(SeverityLevel.CRITICAL)
     public void employeeLoginSuccessTests() {
@@ -66,10 +70,20 @@ public class ReqResTests {
                 assertThat().
                 statusCode(PostEmployeeLogin_Success_Status_Code).
                 body("token", containsStringIgnoringCase("QpwL5tke4Pnpja7X4"));
-
-
     }
-    @Test
+
+    @Test(priority = 4)
+    @Description("As an Api User, i need to do an unsuccessful login")
+    @Severity(SeverityLevel.NORMAL)
+    public void employeeUnsuccessfulloginTests(){
+        employeeUnsuccessfulloginResponse().
+                then().
+                assertThat().
+                statusCode(EmployeeUnsuccessfullogin_Success_Status_Code).
+                body("error",containsStringIgnoringCase("Missing password"));
+    }
+
+    @Test(priority = 5)
     @Description("As an Api user, I need to Update Single Employee Details")
     @Severity(SeverityLevel.NORMAL)
     public void updateSingleEmployeeTests() {
@@ -78,13 +92,13 @@ public class ReqResTests {
                 assertThat().
                 statusCode(UpdateSingleEmployee_Success_Status_Code).
                 body("name", containsStringIgnoringCase("Nkosi")).
-                body("job", containsStringIgnoringCase("T Analyst")).
-                body("surname" ,containsStringIgnoringCase("Mthembu")).
-                body("updatedAt", notNullValue());
+                body("job", containsStringIgnoringCase("Test Analyst")).
+                body("surname" ,containsStringIgnoringCase("Cele")).
+                body("updatedAt",notNullValue());
     }
 
-    @Test
-    @Description
+    @Test(priority = 7)
+    @Description("As an Api user, I need to successfully delete employee details")
     @Severity(SeverityLevel.NORMAL)
     public void deleteEmployeeTests() {
         deleteEmployeeResponse().
@@ -92,5 +106,29 @@ public class ReqResTests {
                 assertThat().
                 statusCode(DeleteEmployee_Success_Status_Code);
     }
+    @Test(priority = 6)
+    @Description("As an Api User, I need to successfully register as a new user")
+    @Severity(SeverityLevel.CRITICAL)
+    public void successfulRegisterTests(){
+        successfulRegisterResponse().
+                then().
+                assertThat().
+                statusCode(SuccessfulRegister_Success_Status_Code).
+                body("id", notNullValue()).
+                body("token" ,notNullValue());
+
+
+    }
+    @Test(priority = 8)
+    @Description("As an Api User,I need to check that a single user is not found")
+    @Severity(SeverityLevel.NORMAL)
+    public void singleUserNotFoundTests(){
+        singleUserNotFoundResponse().
+                then().
+                assertThat().
+                statusCode(SingleUserNotFound_Success_Status_Code);
+
+    }
+
 }
 

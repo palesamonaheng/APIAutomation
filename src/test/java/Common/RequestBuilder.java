@@ -33,7 +33,7 @@ public class RequestBuilder {
                 body(getListOfEmployeeObject()).
                 contentType(json_contentType).
                 log().all().
-                get(ReqRes_baseURL + "api/users?page=2").
+                get(ReqRes_baseURL + "/api/users?page=2").
                 then().
                 log().all().
                 extract().response();
@@ -45,7 +45,7 @@ public class RequestBuilder {
     public static Response getSingleEmployeeResponse() {
         Response response = given().
                 when().
-                //body(getSingleEmployeeObject()).
+                body(getSingleEmployeeObject()).
                 contentType(json_contentType).
                 log().all().
                 get(ReqRes_baseURL + "/api/users/2").
@@ -62,12 +62,25 @@ public static Response employeeLoginSuccessResponse() {
                 body(employeeLoginSuccessObject()).
                 contentType(json_contentType).
                 log().all().
-                get(ReqRes_baseURL +"/api/login").
+                post(ReqRes_baseURL +"/api/login").
                 then().
                 log().all().
                 extract().response();
         EmployeeID = response.jsonPath().getString("id");
 
+        return response;
+}
+public static Response employeeUnsuccessfulloginResponse(){
+        Response response = given().
+                when().
+                body(employeeUnsuccessfulloginObject()).
+                contentType(json_contentType).
+                log().all().
+                post(ReqRes_baseURL + "/api/login").
+                then().
+                log().all().
+                extract().response();
+        EmployeeID = response.jsonPath().getString("id");
         return response;
 }
 
@@ -100,4 +113,34 @@ public static Response deleteEmployeeResponse(){
 
         return response;
 }
+
+public static Response successfulRegisterResponse(){
+        Response response = given().
+                when().
+                body(successfulRegisterObject()).
+                contentType(json_contentType).
+                log().all().
+                post(ReqRes_baseURL + "/api/register").
+                then().
+                log().all().
+                extract().response();
+        EmployeeID = response.jsonPath().getString("id");
+
+        return response;
 }
+public static Response singleUserNotFoundResponse(){
+        Response response = given().
+                when().
+                body(singleUserNotFoundObject()).
+                contentType(json_contentType).
+                log().all().
+                get(ReqRes_baseURL + "/api/users/23").
+                then().
+                log().all().
+                extract().response();
+        EmployeeID = response.jsonPath().getString("id");
+
+        return response;
+}
+}
+
