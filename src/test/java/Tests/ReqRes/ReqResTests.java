@@ -20,10 +20,19 @@ public class ReqResTests {
                 then().
                 assertThat().
                 statusCode(Create_Success_Status_Code).
-                body("name", containsStringIgnoringCase("Nkosi")).
-                body("job", containsStringIgnoringCase("Test")).
+                body("name", containsStringIgnoringCase("Allettah")).
+                body("job", containsStringIgnoringCase("Test Analyst")).
                 body("id", notNullValue()).
                 body("createdAt", notNullValue());
     }
+    @Test(dependsOnMethods = "createEmployee")
+    @Story("Update Single Employee")
+    @Description("As as api user i wnat to update single employee")
+    @Severity(SeverityLevel.NORMAL)
+    public void updateSingleEmployee(){
+
+    }
+
+
 
 }

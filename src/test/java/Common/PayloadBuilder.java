@@ -14,5 +14,28 @@ public class PayloadBuilder {
         return jsonObject;
 
     }
+    public static JSONObject getListOfEmployeesObject(){
+        JSONObject jsonObject = new JSONObject();
+        return jsonObject;
+    }
+
+    public static JSONObject getSingleEmployeeObject(){
+        JSONObject jsonObject = new JSONObject();
+        return jsonObject;
+    }
+    public static JSONObject updateSingleEmployeeObject(){
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("name", "Allettah");
+        jsonObject.put("job", "Test Engineer");
+        return jsonObject;
+    }
+    public static JSONObject deleteSingleEmployeeObject(){
+        JSONObject jsonObject = new JSONObject();
+        return jsonObject;
+    }
+
+
+
+
 
 }
