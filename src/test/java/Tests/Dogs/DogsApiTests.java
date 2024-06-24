@@ -3,10 +3,8 @@ package Tests.Dogs;
 import io.qameta.allure.Description;
 import org.testng.annotations.Test;
 
-import static Common.CoomonTestData.GetListOfAllBreeds_Success_Status_Code;
-import static Common.CoomonTestData.GetSingleDogRandomImages_Success_Status_Code;
-import static Common.RequestBuilder.getListOfAllBreedsResponse;
-import static Common.RequestBuilder.getSingleDogRandomImagesResponse;
+import static Common.CoomonTestData.*;
+import static Common.RequestBuilder.*;
 import static org.hamcrest.Matchers.*;
 
 public class DogsApiTests {
@@ -32,8 +30,29 @@ public class DogsApiTests {
                 statusCode(GetSingleDogRandomImages_Success_Status_Code).
                 body("message",notNullValue()).
                 body("status", containsStringIgnoringCase("success"));
+    }
 
+    @Test
+    @Description("As an Api user, I need to get dogs by breed")
+    public void getDogsByBreedTests(){
+        getDogsByBreedResponse().
+                then().
+                assertThat().
+                statusCode(GetDogsByBreed_Success_Status_Code).
+                body("message", notNullValue()).
+                body("status", containsStringIgnoringCase("success"));
 
+    }
+
+    @Test
+    @Description("As an Api user, I need to get dogs by Sub Breed")
+    public void getDogsBySubBreedTests(){
+        getDogsBySubBreedResponse().
+                then().
+                assertThat().
+                statusCode(GetDogsBySubBreed_Success_Status_Code).
+                body("message", notNullValue()).
+                body("status", containsStringIgnoringCase("success"));
 
 
     }

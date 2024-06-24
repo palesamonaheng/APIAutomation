@@ -83,4 +83,15 @@ public class PayloadBuilder {
         JSONObject jsonObject = new JSONObject();
         return jsonObject;
     }
+
+    public static JSONObject getDogsByBreedObject(){
+        JSONObject jsonObject = new JSONObject();
+        return jsonObject;
+    }
+
+    public static JSONObject getDogsBySubBreedObject(){
+        JSONObject jsonObject = new JSONObject();
+        return jsonObject;
+    }
+
 }

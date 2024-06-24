@@ -1,5 +1,6 @@
 package Common;
 
+import io.qameta.allure.Description;
 import io.restassured.response.Response;
 import org.json.simple.JSONObject;
 import org.testng.annotations.Test;
@@ -175,5 +176,31 @@ public class RequestBuilder {
         return response;
 
         }
-}
+
+    public static Response getDogsByBreedResponse(){
+        Response response = given().
+                when().
+                body(getDogsByBreedObject()).
+                contentType(json_contentType).
+                log().all().
+                get(DogsApi_BaseUrl + "/breed/hound/images").
+                then().
+                log().all().
+                extract().response();
+        return response;
+    }
+    public static Response getDogsBySubBreedResponse(){
+        Response response = given().
+                when().
+                body(getDogsBySubBreedObject()).
+                contentType(json_contentType).
+                log().all().
+                get(DogsApi_BaseUrl + "/breed/hound/list").
+                then().
+                log().all().
+                extract().response();
+        return response;
+    }
+
+        }
 

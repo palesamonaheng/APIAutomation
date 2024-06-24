@@ -17,4 +17,6 @@ public class CoomonTestData {
 
     public static int GetListOfAllBreeds_Success_Status_Code = 200;
     public static int GetSingleDogRandomImages_Success_Status_Code = 200;
+    public static int GetDogsByBreed_Success_Status_Code = 200;
+    public static int GetDogsBySubBreed_Success_Status_Code = 200;
 }
