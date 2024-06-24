@@ -8,8 +8,8 @@ public class PayloadBuilder {
     public static JSONObject createEmployeeObject() {
 
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("name", "Nkosi");
-        jsonObject.put("job", "Test");
+        jsonObject.put("name", "Allettah");
+        jsonObject.put("job", "Test Analyst");
 
         return jsonObject;
 
