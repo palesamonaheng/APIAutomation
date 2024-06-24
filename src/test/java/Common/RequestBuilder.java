@@ -26,4 +26,16 @@ public class RequestBuilder {
         return response;
     }
 
+    public static Response getEmployeedetailsResponse(){
+          Response response = given().
+                when().
+                get(ReqRes_baseURL + "/api/users?page=2").
+                then().
+                log().
+                all().
+                extract().response();
+
+        return response;
+    }
+
 }
