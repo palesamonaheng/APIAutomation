@@ -94,4 +94,8 @@ public class PayloadBuilder {
         return jsonObject;
     }
 
+    public static JSONObject getBreedsListObject(){
+        JSONObject jsonObject = new JSONObject();
+        return jsonObject;
+    }
 }

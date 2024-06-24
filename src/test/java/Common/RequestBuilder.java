@@ -202,5 +202,20 @@ public class RequestBuilder {
         return response;
     }
 
+    public static Response getBreedsListResponse(){
+        Response response = given().
+                when().
+                body(getBreedsListObject()).
+                contentType(json_contentType).
+                log().all().
+                get(DogsApi_BaseUrl + "/api/breed/"
+                        + "Affenpinscher"
+                        + "/images/random").
+                then().
+                log().all().
+                extract().response();
+        return response;
+    }
+
         }
 

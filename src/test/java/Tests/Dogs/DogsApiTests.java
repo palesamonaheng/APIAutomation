@@ -53,8 +53,17 @@ public class DogsApiTests {
                 statusCode(GetDogsBySubBreed_Success_Status_Code).
                 body("message", notNullValue()).
                 body("status", containsStringIgnoringCase("success"));
+    }
 
-
+    @Test
+    @Description("As an Api user, I need to get breed list")
+    public void getBreedsListTests(){
+        getBreedsListResponse().
+                then().
+                assertThat().
+                statusCode(GetBreedslist_Success_Status_Code).
+                body("messages", notNullValue()).
+                body("status", containsStringIgnoringCase("error"));
     }
 
 }
