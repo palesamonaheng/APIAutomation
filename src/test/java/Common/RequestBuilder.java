@@ -30,10 +30,9 @@ public class RequestBuilder {
     public static Response getEmployeeResponse() {
         return given().
                 when().
-                body(getEmployeeObject()).
                 contentType(json_contentType).
                 log().all().
-                get(ReqRes_baseURL + "/api/users"+EmployeeID).
+                get(ReqRes_baseURL + "/api/users/"+EmployeeID).
                 then().
                 log().all().
                 extract().response();
@@ -43,7 +42,7 @@ public class RequestBuilder {
    public static Response updateEmployeeResponse() {
     return given().
             when().
-            body(getEmployeeObject()).
+            body(updateEmployeeResponse()).
             contentType(json_contentType).
             log().all().
             get(ReqRes_baseURL + "/api/users"+EmployeeID).

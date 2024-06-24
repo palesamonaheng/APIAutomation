@@ -32,7 +32,6 @@ public class ReqResTests {
     @Description("As an employer want to get new hired employees")
     @Severity(SeverityLevel.BLOCKER)
     public void getEmployeeTests() {
-        getEmployeeResponse().
-                getBody();
+        getEmployeeResponse().then().assertThat().statusCode(get_Success_Status_Code);
     }
 }
