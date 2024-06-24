@@ -2,9 +2,9 @@ package Tests.ReqRes;
 
 import io.qameta.allure.*;
 import org.testng.annotations.Test;
-import static Common.CoomonTestData.Create_Success_Status_Code;
-import static Common.RequestBuilder.EmployeeID;
-import static Common.RequestBuilder.createEmployeeResponse;
+
+import static Common.CoomonTestData.*;
+import static Common.RequestBuilder.*;
 import static org.hamcrest.Matchers.*;
 
 
@@ -24,6 +24,75 @@ public class ReqResTests {
                 body("job", containsStringIgnoringCase("Test")).
                 body("id", notNullValue()).
                 body("createdAt", notNullValue());
+
     }
 
+    @Test
+    @Feature("ReqRes")
+    @Story("Get Employee List")
+    public static class ReqResGetTests {
+
+        @Description("As an API user I want to retrieve data of the all employee details ")
+        @Severity(SeverityLevel.TRIVIAL)
+        public void getEmployeeDetailsTests() {
+            getEmployeedetailsReponse().
+                    then().
+                    assertThat().
+                    statusCode(Retrieve_Employee_Status_Code).
+                    body("page", notNullValue()).
+                    body("per_page", notNullValue());
+        }
+
+        @Test
+        @Feature("ReqRes")
+        @Story("Update the details of the recently created employee")
+        public static class ReqResPutTests {
+
+            @Description("As an API user I want to update details for the recently created employee")
+            @Severity(SeverityLevel.BLOCKER)
+            public void updateEmployeeDetailsTest() {
+                updateEmployeeResponse().
+                        then().
+                        assertThat().
+                        statusCode(Retrieve_Employee_Status_Code).
+                        body("job", notNullValue()).
+                        body("name", notNullValue()).
+                        body("surname", notNullValue());
+            }
+
+            @Test
+            @Feature("ReqRes")
+            @Story("Patch the details of an employee")
+            public static class ReqResPatchTests {
+                @Description("Patch the recently created employee")
+                @Severity(SeverityLevel.CRITICAL)
+                public void patchEmployeeDetailsTest() {
+                    patchEmployeeResponse().
+                            then().
+                            assertThat().
+                            statusCode(Retrieve_Employee_Status_Code).
+                            body("name", containsStringIgnoringCase("morpheuspatch")).
+                            body("job", containsStringIgnoringCase("zion residentpatch")).
+                            body("updatedAt", notNullValue());
+
+                }
+
+                @Test
+                @Feature("ReqRes")
+                @Story("Delete Employee")
+                public static class ReqResDeleteTest {
+                    @Description("Delete the recently created employee")
+                    @Severity(SeverityLevel.NORMAL)
+                    public void deleteEmployeeTest() {
+                        deleteEmployeedetailsReponse().
+                                then().
+                                assertThat().
+                                statusCode(Delete_Employee_Status_code);
+                    }
+                }
+
+            }
+        }
+
+    }
 }
