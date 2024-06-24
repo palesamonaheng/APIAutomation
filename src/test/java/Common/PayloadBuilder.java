@@ -71,4 +71,16 @@ public class PayloadBuilder {
         JSONObject jsonObject = new JSONObject();
         return jsonObject;
     }
+
+    //Dogs Api Payloads
+
+    public static JSONObject getListOfAllBreedsObject() {
+        JSONObject jsonObject = new JSONObject();
+        return jsonObject;
+    }
+
+    public static JSONObject getSingleDogRandomImagesObject(){
+        JSONObject jsonObject = new JSONObject();
+        return jsonObject;
+    }
 }

@@ -1,8 +1,10 @@
 package Common;
 
 import io.restassured.response.Response;
+import org.json.simple.JSONObject;
 import org.testng.annotations.Test;
 
+import static Common.BasePaths.DogsApi_BaseUrl;
 import static Common.BasePaths.ReqRes_baseURL;
 import static Common.ContentTypes.json_contentType;
 import static Common.PayloadBuilder.*;
@@ -30,7 +32,7 @@ public class RequestBuilder {
         Response response = given().
                 when().
                 //No need for a body under get method
-                body(getListOfEmployeeObject()).
+                        body(getListOfEmployeeObject()).
                 contentType(json_contentType).
                 log().all().
                 get(ReqRes_baseURL + "/api/users?page=2").
@@ -56,21 +58,23 @@ public class RequestBuilder {
 
         return response;
     }
-public static Response employeeLoginSuccessResponse() {
+
+    public static Response employeeLoginSuccessResponse() {
         Response response = given().
                 when().
                 body(employeeLoginSuccessObject()).
                 contentType(json_contentType).
                 log().all().
-                post(ReqRes_baseURL +"/api/login").
+                post(ReqRes_baseURL + "/api/login").
                 then().
                 log().all().
                 extract().response();
         EmployeeID = response.jsonPath().getString("id");
 
         return response;
-}
-public static Response employeeUnsuccessfulloginResponse(){
+    }
+
+    public static Response employeeUnsuccessfulloginResponse() {
         Response response = given().
                 when().
                 body(employeeUnsuccessfulloginObject()).
@@ -82,9 +86,9 @@ public static Response employeeUnsuccessfulloginResponse(){
                 extract().response();
         EmployeeID = response.jsonPath().getString("id");
         return response;
-}
+    }
 
-public static Response updateSingleEmployeeResponse() {
+    public static Response updateSingleEmployeeResponse() {
         Response response = given().
                 when().
                 body(updateSingleEmployeeObject()).
@@ -97,9 +101,9 @@ public static Response updateSingleEmployeeResponse() {
         EmployeeID = response.jsonPath().getString("id");
 
         return response;
-}
+    }
 
-public static Response deleteEmployeeResponse(){
+    public static Response deleteEmployeeResponse() {
         Response response = given().
                 when().
                 body(deleteEmployeeObject()).
@@ -112,9 +116,9 @@ public static Response deleteEmployeeResponse(){
         EmployeeID = response.jsonPath().getString("id");
 
         return response;
-}
+    }
 
-public static Response successfulRegisterResponse(){
+    public static Response successfulRegisterResponse() {
         Response response = given().
                 when().
                 body(successfulRegisterObject()).
@@ -127,8 +131,9 @@ public static Response successfulRegisterResponse(){
         EmployeeID = response.jsonPath().getString("id");
 
         return response;
-}
-public static Response singleUserNotFoundResponse(){
+    }
+
+    public static Response singleUserNotFoundResponse() {
         Response response = given().
                 when().
                 body(singleUserNotFoundObject()).
@@ -141,6 +146,34 @@ public static Response singleUserNotFoundResponse(){
         EmployeeID = response.jsonPath().getString("id");
 
         return response;
-}
+    }
+
+//Dogs Api Request Builder
+
+    public static Response getListOfAllBreedsResponse() {
+        Response response = given().
+                when().
+                body(getListOfAllBreedsObject()).
+                contentType(json_contentType).
+                log().all().
+                get(DogsApi_BaseUrl + "/breeds/list/all").
+                then().
+                log().all().
+                extract().response();
+        return response;
+    }
+    public static Response getSingleDogRandomImagesResponse(){
+        Response response = given().
+                when().
+                body(getSingleDogRandomImagesObject()).
+                contentType(json_contentType).
+                log().all().
+                get(DogsApi_BaseUrl + "/breeds/image/random").
+                then().
+                log().all().
+                extract().response();
+        return response;
+
+        }
 }
 
