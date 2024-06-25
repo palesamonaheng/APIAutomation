@@ -4,8 +4,7 @@ import io.qameta.allure.*;
 import org.testng.annotations.Test;
 
 import static Common.CommonTestData.*;
-import static Common.PayloadBuilder.getMultipleRandomImageObject;
-import static Common.PayloadBuilder.getSingleRandomImageObject;
+
 import static Common.RequestBuilder.*;
 import static org.hamcrest.Matchers.containsStringIgnoringCase;
 import static org.hamcrest.core.IsNull.notNullValue;

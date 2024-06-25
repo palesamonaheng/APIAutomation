@@ -10,14 +10,14 @@ import static org.hamcrest.Matchers.*;
 
 @Test
 @Feature("ReqRes")
-@Story("Create new employee")
-public class ReqResTests {
-    @Test(priority = 4)
 
+public class ReqResTests {
+    @Story("Create new user")
+    @Test(priority = 4)
     @Description("As an api user i want to create a new employee")
     @Severity(SeverityLevel.CRITICAL)
-    public void CreateEmployeeTests() {
-        createEmployeeResponse().
+    public void CreateUserTests() {
+        createUserResponse().
                 then().
                 assertThat().
                 statusCode(Create_Success_Status_Code).
@@ -26,12 +26,12 @@ public class ReqResTests {
                 body("id", notNullValue()).
                 body("createdAt", notNullValue());
     }
+    @Story("Get a list of users")
     @Test(priority = 5)
-
     @Description("As an api user i want to get a list of employees")
     @Severity(SeverityLevel.CRITICAL)
-    public void GetListOfEmployeeTests() {
-        getListOfEmployeeResponse().
+    public void getListOfUsersTests() {
+        getListOfUsersResponse().
                 then().
                 assertThat().
                 statusCode(GetUser_List_Success_Status_Code).
@@ -42,11 +42,11 @@ public class ReqResTests {
         body("data.avatar", notNullValue());
     }
     @Test(priority = 6)
-
+    @Story("Get a single employee details")
     @Description("As an api user i want to get a single employee details")
     @Severity(SeverityLevel.CRITICAL)
-    public void GetSingleEmployeeTests() {
-        getSingleEmployeeResponse().
+    public void getSingleUserTests() {
+        getSingleUserResponse().
                 then().
                 assertThat().
                 statusCode(Get_Single_User_Success_Status_Code).
@@ -57,11 +57,11 @@ public class ReqResTests {
          body("data.avatar", containsStringIgnoringCase("https://reqres.in/img/faces/2-image.jpg"));
     }
     @Test(priority = 7)
-
+    @Story("Update a single employee details")
     @Description("As an api user i want to update a single employee details")
     @Severity(SeverityLevel.NORMAL)
-    public void updateSingleEmployeeTests() {
-        updateSingleEmployeeResponse().
+    public void updateSingleUserTests() {
+        updateSingleUserResponse().
                 then().
                 assertThat().
                 statusCode(Update_Single_User_Success_Status_Code).
@@ -71,30 +71,30 @@ public class ReqResTests {
 
     }
     @Test(priority = 8)
-
+    @Story("Delete a single employee details")
     @Description("As an api user i want to delete a single employee details")
     @Severity(SeverityLevel.NORMAL)
-    public void DeleteSingleEmployeeTests() {
-        deleteSingleEmployeeResponse().
+    public void deleteSingleUserTests() {
+        deleteSingleUserResponse().
                 then().
                 assertThat().
                 statusCode(delete_Single_User_Success_Status_Code);
     }
     @Test(priority = 9)
-
+    @Story("I don't want to return single employee details")
     @Description("As an api user i don't want to return single employee details")
     @Severity(SeverityLevel.BLOCKER)
-    public void SingleEmployeeNotFoundTests() {
-        singleEmployeeNotFoundResponse().
+    public void SingleUserNotFoundTests() {
+        singleUserNotFoundResponse().
                 then().
                 assertThat().
                 statusCode(get_Single_User_Not_Found_Status_Code);
     }
-
+    @Story("I want to do a successful registration")
     @Description("As an api user i want to do a successful registration")
     @Severity(SeverityLevel.BLOCKER)
-    public void SuccessfulRegisterTests() {
-        successfulRegisterResponse().
+    public void SuccessfulRegisterUserTests() {
+        successfulRegisterUserResponse().
                 then().
                 assertThat().
                 statusCode(display_Successful_Registration_Status_Code).
@@ -103,10 +103,11 @@ public class ReqResTests {
 
     }
     @Test(priority = 2)
+    @Story("I want to do a unsuccessful registration")
     @Description("As an api user i want to do a unsuccessful registration")
     @Severity(SeverityLevel.BLOCKER)
-    public void UnsuccessfulRegisterTests() {
-        unsuccessfulRegisterResponse().
+    public void UnsuccessfulRegisterUserTests() {
+        unsuccessfulRegisterUserResponse().
                 then().
                 assertThat().
                 statusCode(display_Unsuccessful_Registration_Status_Code);
@@ -115,10 +116,11 @@ public class ReqResTests {
 
     }
     @Test(priority = 1)
+    @Story("I want to do a successful login")
     @Description("As an api user i want to do a successful login")
     @Severity(SeverityLevel.BLOCKER)
-    public void SuccessfulLoginTests() {
-        successfulLoginResponse().
+    public void SuccessfulUserLoginTests() {
+        successfulUserLoginResponse().
                 then().
                 assertThat().
                 statusCode(display_Successful_Login_Status_Code).
@@ -129,8 +131,8 @@ public class ReqResTests {
     @Test(priority = 3)
     @Description("As an api user i want to do a successful login")
     @Severity(SeverityLevel.BLOCKER)
-    public void UnsuccessfulLoginTests() {
-        unsuccessfulLoginResponse().
+    public void UnsuccessfulUserLoginTests() {
+        unsuccessfulUserLoginResponse().
                 then().
                 assertThat().
                 statusCode(display_Unsuccessful_Login_Status_Code).
@@ -139,6 +141,7 @@ public class ReqResTests {
 
     }
     @Test(priority = 10)
+    @Story("I want to find a single resource")
     @Description("As an api user i want to find a single user")
     @Severity(SeverityLevel.BLOCKER)
     public void SingleResourceTests() {
@@ -151,6 +154,7 @@ public class ReqResTests {
 
     }
     @Test(priority = 11)
+    @Story("I don't want to find a single user")
     @Description("As an api user i don't want to find a single user")
     @Severity(SeverityLevel.BLOCKER)
     public void SingleResourceNotFoundTests() {
@@ -160,7 +164,8 @@ public class ReqResTests {
                 statusCode(display_Single_Resource_Not_Found_Status_Code);
         }
     @Test(priority = 11)
-    @Description("As an api user i don't want to find a single user")
+    @Story("I want to find a list of users")
+    @Description("As an api user i want to find a list of users")
     @Severity(SeverityLevel.BLOCKER)
     public void ListResourceTests() {
         listResourcesResponse().

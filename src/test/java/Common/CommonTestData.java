@@ -1,5 +1,7 @@
 package Common;
 
+import static Common.RequestBuilder.APIKey;
+
 public class CommonTestData {
 
     //REQRES STATUS CODES
@@ -33,7 +35,11 @@ public class CommonTestData {
 
 
 //STARTING THE WEATHER API STATUS CODES
-
-  //  public static int api_Authorization_Status_Code = 200;
+    public static int register_Weather_Station = 201;
+    public static int get_Newly_Registered_Weather_Station = 200;
+    public static int update_Weather_Station_Info = 200;
+    public static int delete_Weather_Station_Info = 200;
+    public static int negative_Register_Weather_Station_Info = 400;
+    public static int invalid_APIKey_Weather_Registration = 400;
 
 }
