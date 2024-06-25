@@ -1,1 +1,1 @@
-allure serve C:\AutomationBootCampWithKK\ApiAutomation\2ndGroup2024APIAutomation\allure-results
+allure serve C:\Users\LEnovo\IdeaProjects\2ndGroup2024APIAutomation\allure-results

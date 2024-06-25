@@ -33,7 +33,7 @@ public class RequestBuilder {
         Response response = given().
                 when().
                 //No need for a body under get method
-                        body(getListOfEmployeeObject()).
+                // body(getListOfEmployeeObject()).
                 contentType(json_contentType).
                 log().all().
                 get(ReqRes_baseURL + "/api/users?page=2").
@@ -48,7 +48,6 @@ public class RequestBuilder {
     public static Response getSingleEmployeeResponse() {
         Response response = given().
                 when().
-                body(getSingleEmployeeObject()).
                 contentType(json_contentType).
                 log().all().
                 get(ReqRes_baseURL + "/api/users/2").

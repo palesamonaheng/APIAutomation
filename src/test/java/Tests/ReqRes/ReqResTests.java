@@ -34,17 +34,23 @@ public class ReqResTests {
                 then().
                 assertThat().
                 statusCode(GetEmployeeList_Success_Status_Code).
-                body("page", notNullValue()).
-                body("per_page", notNullValue()).
-                body("total", notNullValue()).
-                body("total_pages" ,notNullValue()).
-                body("data" , notNullValue()).
-                body("data.id", notNullValue()).
-                body("data.email", notNullValue()).
-                body("data.first_name", notNullValue()).
-                body("data.last_name", notNullValue()).
-                body("data.avatar", notNullValue());
+                body("data[0].id",equalTo(7)).
+                body("data[1].id",equalTo(8)).
+                body("data[2].id",equalTo(9)).
+                body("data[3].id",equalTo(10)).
+                body("data[4].id",equalTo(11)).
+                body("data[5].id",equalTo(12));
 
+//                body("page", notNullValue()).
+//                body("per_page", notNullValue()).
+//                body("total", notNullValue()).
+//                body("total_pages" ,notNullValue()).
+//                body("data" , notNullValue()).
+//                body("data.id", notNullValue()).
+//                body("data.email", notNullValue()).
+//                body("data.first_name", notNullValue()).
+//                body("data.last_name", notNullValue()).
+//                body("data.avatar", notNullValue());
     }
     @Test(priority = 2)
     @Description("As an Api User I need to be able to get single employee details")
@@ -54,12 +60,12 @@ public class ReqResTests {
                 then().
                 assertThat().
                 statusCode(GetSingleEmployee_Success_Status_Code).
-                body("data.id", notNullValue()).
-                body("data.email", notNullValue()).
-                body("data.first_name", notNullValue()).
-                body("data.last_name", notNullValue()).
+                body("data.id",equalTo(2)).
+                body("data.email",equalTo("janet.weaver@reqres.in")).
+                body("data.first_name", equalTo("Janet")).
+                body("data.last_name", equalTo("Weaver")).
                 body("data.avatar", notNullValue());
-    }
+  }
 
     @Test(priority = 3)
     @Description("As an Api User, I want to login successfully")

@@ -16,18 +16,18 @@ public class PayloadBuilder {
 
     }
 
-    public static JSONObject getListOfEmployeeObject() {
+//    public static JSONObject getListOfEmployeeObject() {
+//
+//        JSONObject jsonObject = new JSONObject();
+//
+//        return jsonObject;
+//    }
 
-        JSONObject jsonObject = new JSONObject();
-
-        return jsonObject;
-    }
-
-    public static JSONObject getSingleEmployeeObject() {
-
-        JSONObject jsonObject = new JSONObject();
-        return jsonObject;
-    }
+//    public static JSONObject getSingleEmployeeObject() {
+//
+//        JSONObject jsonObject = new JSONObject();
+//        return jsonObject;
+//    }
 
     public static JSONObject employeeLoginSuccessObject() {
 

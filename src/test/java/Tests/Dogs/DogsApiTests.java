@@ -7,6 +7,7 @@ import static Common.CoomonTestData.*;
 import static Common.RequestBuilder.*;
 import static org.hamcrest.Matchers.*;
 
+@Test
 public class DogsApiTests {
 
     @Test
