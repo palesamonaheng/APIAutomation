@@ -1,9 +1,6 @@
 package Common;
 
 import org.json.simple.JSONObject;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.Test;
-
 import static Common.RequestBuilder.StationID;
 
 public class PayloadBuilder {
@@ -40,7 +37,11 @@ public class PayloadBuilder {
         jsonObject.put("altitude", 150);
         return jsonObject;
     }
-    public static JSONObject updateWeatherStationInfoObject() {
+    public static JSONObject getNewlyRegisteredWeatherStationInfoObject() {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("ID", StationID);
+        return jsonObject;
+    }public static JSONObject updateWeatherStationInfoObject() {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("ID", StationID);
         return jsonObject;

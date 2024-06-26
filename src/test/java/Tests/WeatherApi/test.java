@@ -27,6 +27,16 @@ public class test {
                 body("name", containsStringIgnoringCase("Group 2 Station"));
     }
     @Test(dependsOnMethods = "registerWeatherStationTests")
+    @Description("As an api user i want to get newly registered weather station info")
+    @Severity(SeverityLevel.NORMAL)
+    public void getNewlyRegisteredWeatherStationInfoResponseTests() {
+        getNewlyRegisteredWeatherStationInfoResponse().
+                then().
+                assertThat().
+                statusCode(Create_Success_Status_Code).
+                body("id", notNullValue());
+    }
+    @Test(dependsOnMethods = "getNewlyRegisteredWeatherStationInfoResponseTests")
     @Description("As an api user i want to update the newly registered weather station info")
     @Severity(SeverityLevel.NORMAL)
     public void updateWeatherStationInfoTests() {

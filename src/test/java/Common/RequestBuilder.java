@@ -1,8 +1,6 @@
 package Common;
 
 import io.restassured.response.Response;
-import org.testng.annotations.Test;
-
 import static Common.Authorization.apiKey;
 import static Common.Authorization.apiValue;
 import static Common.BasePaths.*;
@@ -67,6 +65,21 @@ public class RequestBuilder {
         StationID = response.jsonPath().getString("id");
         return response;
     }
+    public static Response getNewlyRegisteredWeatherStationInfoResponse(){
+        Response response = given().
+                when().
+                queryParam(apiKey,apiValue).
+                body(getNewlyRegisteredWeatherStationInfoObject()).
+                contentType(json_contentType).
+                log().all().
+                post(WeatherAPI_baseURL + "/data/3.0/stations/" + StationID).
+                then().
+                log().all().
+                extract().response();
+        StationID = response.jsonPath().getString("id");
+        return response;
+    }
+
     public static Response updateWeatherStationInfoResponse() {
         Response response = given().
                 when().
