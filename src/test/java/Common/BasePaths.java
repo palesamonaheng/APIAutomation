@@ -6,4 +6,6 @@ public class BasePaths {
 
     public static String DogsAPI_baseURL = "https://dog.ceo/api";
 
+
+
 }
