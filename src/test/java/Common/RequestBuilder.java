@@ -3,6 +3,8 @@ package Common;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 
+import static Common.Authorization.apiKey;
+import static Common.Authorization.apiValue;
 import static Common.BasePaths.*;
 import static Common.ContentTypes.json_contentType;
 import static Common.PayloadBuilder.*;
@@ -11,7 +13,7 @@ import static io.restassured.RestAssured.*;
 public class RequestBuilder {
     public static String EmployeeID;
     public static String StationID;
-    public static String APIKey;
+
 
     public static Response createEmployeeResponse() {
         Response response = given().
@@ -54,6 +56,7 @@ public class RequestBuilder {
     public static Response registerWeatherStationResponse(){
         Response response = given().
                 when().
+                queryParam(apiKey,apiValue).
                 body(registerWeatherStationObject()).
                 contentType(json_contentType).
                 log().all().
