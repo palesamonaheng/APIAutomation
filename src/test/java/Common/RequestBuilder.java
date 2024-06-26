@@ -40,5 +40,17 @@ public class RequestBuilder {
 
 
   }
+  public static Response getListofAllBreedsResponse(){
+        return given().
+                when().
+                body(getListOfAllBreedsObject()).
+                contentType(json_contentType).
+                log().all().
+                post(DogsAPI_baseURL + "/breeds/list/all" ).
+                then().
+                log().all().
+                extract().response();
+    }
+
 
 }

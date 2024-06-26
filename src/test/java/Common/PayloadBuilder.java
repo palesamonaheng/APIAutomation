@@ -35,10 +35,10 @@ public class PayloadBuilder {
 //    }
 //
 //// Dogs API
-//    public static JSONObject getListOfAllBreedsObject() {
-//        JSONObject jsonObject = new JSONObject();
-//        return jsonObject;
-//    }
+    public static JSONObject getListOfAllBreedsObject() {
+        JSONObject jsonObject = new JSONObject();
+        return jsonObject;
+    }
 //        public static JSONObject getSingleRandomImageObject(){
 //            JSONObject jsonObject = new JSONObject();
 //            return jsonObject;
