@@ -40,9 +40,9 @@ public class WeatherAPITests {
                 then().
                 assertThat().
                 statusCode(get_Newly_Registered_Weather_Station).
-                body("id", notNullValue());
+                body("data.id", notNullValue());
               }
-              /*
+
     @Test(priority = 2)
     @Description("As an api user i want to update the newly registered weather station info")
     @Severity(SeverityLevel.NORMAL)
@@ -67,11 +67,11 @@ public class WeatherAPITests {
     @Description("As an api user i want to delete the newly registered weather station info")
     @Severity(SeverityLevel.NORMAL)
     public void negativeRegisterWeatherStationTests() {
-        deleteWeatherStationInfoResponse().
+        negativeRegisterWeatherStationResponse().
                 then().
                 assertThat().
                 statusCode(negative_Register_Weather_Station_Info).
                 body("id", notNullValue());
     }
-    */
+
 }

@@ -327,40 +327,26 @@ public class RequestBuilder {
                 Response response = given().
                 when().
                 queryParam(apiKey,apiValue).
-              // body(getNewlyRegisteredWeatherStationIDObject()).
+               //body(getNewlyRegisteredWeatherStationIDObject()).
                 contentType(json_contentType).
                 log().all().
-                get(WeatherAPI_baseURL + "/data/3.0/stations" + StationID).
+                get(WeatherAPI_baseURL + "/data/3.0/stations").
                 then().
                 log().all().
                 extract().response();
-        //StationID = response.jsonPath().getString("ID");
+        StationID = response.jsonPath().getString("ID");
         System.out.println("Station ID: " + StationID);
         return response;
     }
-
 
     public static Response updateWeatherStationInfoResponse() {
         Response response = given().
                 when().
+                queryParam(apiKey,apiValue).
                 body(updateWeatherStationInfoObject()).
                 contentType(json_contentType).
                 log().all().
-                put(WeatherAPI_baseURL + "/data/3.0/stations" + StationID).
-                then().
-                log().all().
-                extract().response();
-        StationID = response.jsonPath().getString("ID");
-        System.out.println("Station ID: " + StationID);
-        return response;
-    }/*
-    public static Response deleteWeatherStationInfoResponse() {
-        Response response = given().
-                when().
-                body(deleteWeatherStationInfoObject()).
-                contentType(json_contentType).
-                log().all().
-                put(WeatherAPI_baseURL + "/data/3.0/stations", StationID).
+                put(WeatherAPI_baseURL + "/data/3.0/stations").
                 then().
                 log().all().
                 extract().response();
@@ -368,12 +354,25 @@ public class RequestBuilder {
         System.out.println("Station ID: " + StationID);
         return response;
     }
-    public static Response NegativeRegisterWeatherStationResponse() {
-        APIKey = "ca497274c14aef3abcab96bf314e8736abcd";
-        System.out.println("API key: " + APIKey);
+    public static Response deleteWeatherStationInfoResponse() {
         Response response = given().
                 when().
-                //headers("Authorization", APIKey).
+                queryParam(apiKey,apiValue).
+                body(deleteWeatherStationInfoObject()).
+                contentType(json_contentType).
+                log().all().
+                delete(WeatherAPI_baseURL + "/data/3.0/stations" + StationID).
+                then().
+                log().all().
+                extract().response();
+        StationID = response.jsonPath().getString("ID");
+        System.out.println("Station ID: " + StationID);
+        return response;
+    }
+    public static Response negativeRegisterWeatherStationResponse() {
+              Response response = given().
+                when().
+                queryParam(apiKey,apiValue).
                 body(negativeRegisterWeatherStationObject()).
                 contentType(json_contentType).
                 log().all().
@@ -383,5 +382,4 @@ public class RequestBuilder {
                 extract().response();
         return response;
     }
-    */
 }

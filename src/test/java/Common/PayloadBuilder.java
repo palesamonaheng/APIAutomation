@@ -70,13 +70,18 @@ public class PayloadBuilder {
         System.out.println("API key: " + apiKey);
         System.out.println("API key value: " + apiValue);
         return jsonObject;
-    }
+    }/*
+    public static JSONObject getNewlyRegisteredWeatherStationIDObject() {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("ID", StationID);
+        return jsonObject;
+    }*/
 
     public static JSONObject updateWeatherStationInfoObject() {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("ID", StationID);
         return jsonObject;
-    }/*
+    }
     public static JSONObject deleteWeatherStationInfoObject() {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("ID", StationID);
@@ -84,7 +89,7 @@ public class PayloadBuilder {
     }
     public static JSONObject negativeRegisterWeatherStationObject() {
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("external_id", "");
+        jsonObject.put("external_id", " ");
         jsonObject.put("name", "Group 2 Station");
         //STILL TO CHANGE THESE FROM STRING TO INTERGERS
         jsonObject.put("latitude", "37.76");
@@ -92,6 +97,4 @@ public class PayloadBuilder {
         jsonObject.put("altitude", "150");
         return jsonObject;
     }
-
-     */
 }
