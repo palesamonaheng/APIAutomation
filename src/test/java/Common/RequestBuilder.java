@@ -1,13 +1,17 @@
 package Common;
 
+import groovyjarjarpicocli.CommandLine;
 import io.restassured.response.Response;
+
 import org.testng.annotations.Test;
 
 import static Common.BasePaths.ReqRes_baseURL;
 import static Common.ContentTypes.json_contentType;
 import static Common.PayloadBuilder.createEmployeeObject;
+import static Common.PayloadBuilder.getWeatherStations;
 import static Common.PayloadBuilder.getEmployeeObject;
 import static io.restassured.RestAssured.*;
+
 
 public class RequestBuilder {
     public static String EmployeeID;
@@ -50,5 +54,6 @@ public class RequestBuilder {
             log().all().
             extract().response();
 }
+
 }
 
