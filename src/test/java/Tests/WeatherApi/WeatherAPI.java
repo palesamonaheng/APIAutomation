@@ -17,10 +17,9 @@ public class WeatherAPI {
         createWeatherStationResponse().then().
             assertThat().
             statusCode(Create_Success_Status_Code).
-            body("id", notNullValue()).
             body("created_at", notNullValue()).
-            body("external_id",containsStringIgnoringCase( "Mak_TEST002")).
-                body("name",containsStringIgnoringCase( "Group Mak Station")).
+            body("external_id",containsStringIgnoringCase( "Mak_TEST003")).
+                body("name",containsStringIgnoringCase( "Group Mak Testing Station")).
                 body("user_id",notNullValue());
     }
 
@@ -30,11 +29,11 @@ public class WeatherAPI {
     @Description("As an employer want to get all created weather stations")
     @Severity(SeverityLevel.BLOCKER)
     public void getWeatherStations() {
-        getStations().then().assertThat()
-     //   body("id", notNullValue()).
-           //     body("created_at", notNullValue()).
+        getStations().then().assertThat().
+       body("id", notNullValue()).
+           body("created_at", notNullValue()).
              //   body("external_id",containsStringIgnoringCase( "Mak_TEST002"))
-               .statusCode(get_stations_Status_Code);
+               statusCode(get_stations_Status_Code);
     }
 
 

@@ -7,34 +7,36 @@ import static Common.ContentTypes.json_contentType;
 import static Common.PayloadBuilder.createEmployeeObject;
 import static Common.PayloadBuilder.*;
 import static io.restassured.RestAssured.given;
+import static io.restassured.RestAssured.requestSpecification;
 
 public class WeatherRequestBuilder {
     public static String StationID;
 
     public static Response createWeatherStationResponse() {
-        Response response = given().baseUri(Weather_baseURL)
-                .contentType(json_contentType)
-                .header("Authorization", apiKey).
+        Response response = given().header("Authorization", apiKey).
+                queryParam("appid", apiKey).
+                contentType(json_contentType).
                 when().
                 body(createWeatherObject()).
                 log().all().
-                post(Weather_baseURL + "/data/3.0/stations").
+                post( Weather_baseURL+"/data/3.0/stations").
                 then().
                 log().all().
                 extract().response();
-        StationID = response.jsonPath().get("id");
+        StationID = response.jsonPath().getString("id");
         System.out.println("Station ID created" + StationID);
 
         return response;
     }
     public static Response getStations() {
         System.out.println("Station ID retrieved" + StationID);
-        return given().baseUri(Weather_baseURL)
-               .header("Authorization", "6ffaa34def8fcc4474de61cbcfd97660")
-                .contentType(json_contentType).
+               return given().
+               header("Authorization", apiKey).
+                queryParam("appid", apiKey).
+                contentType(json_contentType).
                 when().
                 log().all().
-                get("/data/3.0/stations/"+StationID).
+                get(Weather_baseURL+"/data/3.0/stations/"+StationID).
                 then().
                 log().all().
                 extract().response();
