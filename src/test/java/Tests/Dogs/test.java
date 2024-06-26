@@ -17,7 +17,6 @@ public class test {
                 then().
                 assertThat().
                 statusCode(Success_Status_Code).
-                body("messages", notNullValue()).
-                body("status", containsStringIgnoringCase("error"));
+                body(containsStringIgnoringCase("doberman"));
     }
 }

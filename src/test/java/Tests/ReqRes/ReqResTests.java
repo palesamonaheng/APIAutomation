@@ -36,9 +36,9 @@ public class ReqResTests {
         updateEmployeeResponse().
                 then().
                 assertThat().
-                statusCode(Success_Status_Code).
+                statusCode(Create_Success_Status_Code).
                 body("name", containsStringIgnoringCase("Allettah")).
-                body("job", containsStringIgnoringCase("Test Analyst")).
+                body("job", containsStringIgnoringCase("Test Engineer")).
                 body("id", notNullValue()).
                 body("createdAt", notNullValue());
 

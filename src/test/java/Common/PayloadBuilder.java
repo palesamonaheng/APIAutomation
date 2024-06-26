@@ -6,7 +6,6 @@ import org.testng.annotations.Test;
 
 public class PayloadBuilder {
     public static JSONObject createEmployeeObject() {
-
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("name", "Allettah");
         jsonObject.put("job", "Test Analyst");
@@ -14,18 +13,10 @@ public class PayloadBuilder {
         return jsonObject;
 
     }
-//    public static JSONObject getListOfEmployeesObject(){
-//        JSONObject jsonObject = new JSONObject();
-//        return jsonObject;
-//    }
 //
-//    public static JSONObject getSingleEmployeeObject(){
-//        JSONObject jsonObject = new JSONObject();
-//        return jsonObject;
-//    }
     public static JSONObject updateSingleEmployeeObject(){
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("name", "Motsidisi");
+        jsonObject.put("name", "Allettah");
         jsonObject.put("job", "Test Engineer");
         return jsonObject;
     }
@@ -33,35 +24,19 @@ public class PayloadBuilder {
 //        JSONObject jsonObject = new JSONObject();
 //        return jsonObject;
 //    }
-//
 //// Dogs API
     public static JSONObject getListOfAllBreedsObject() {
         JSONObject jsonObject = new JSONObject();
         return jsonObject;
     }
-//        public static JSONObject getSingleRandomImageObject(){
-//            JSONObject jsonObject = new JSONObject();
-//            return jsonObject;
-//    }
-//
-//    public static JSONObject getMultipleRandomImageObject(){
-//        JSONObject jsonObject = new JSONObject();
-//        return jsonObject;
-//    }
-//    public static JSONObject getAllImagesByBreedObject(){
-//        JSONObject jsonObject = new JSONObject();
-//        return jsonObject;
-//    }
-//    public static JSONObject getRandomImageFromBreedObject(){
-//        JSONObject jsonObject = new JSONObject();
-//        return jsonObject;
-//    }
-//    public static JSONObject getMultipleImagesFromBreedObject(){
-//        JSONObject jsonObject = new JSONObject();
-//        return jsonObject;
-//    }
-//    public static JSONObject getListOfAllSubBreedsObject(){
-//        JSONObject jsonObject = new JSONObject();
-//        return jsonObject;
-//    }
+    public static JSONObject registerWeatherStationObject(){
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("external_id", "SF_TEST002");
+        jsonObject.put("name", "Group 2 Station");
+        jsonObject.put("latitude", 37.76);
+        jsonObject.put("longitude", -122.43);
+        jsonObject.put("altitude", 150);
+        return jsonObject;
+    }
+
 }
