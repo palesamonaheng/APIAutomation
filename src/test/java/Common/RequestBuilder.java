@@ -67,6 +67,36 @@ public class RequestBuilder {
         StationID = response.jsonPath().getString("id");
         return response;
     }
+    public static Response updateWeatherStationInfoResponse() {
+        Response response = given().
+                when().
+                queryParam(apiKey,apiValue).
+                body(updateWeatherStationInfoObject()).
+                contentType(json_contentType).
+                log().all().
+                put(WeatherAPI_baseURL + "/data/3.0/stations").
+                then().
+                log().all().
+                extract().response();
+        StationID = response.jsonPath().getString("ID");
+        System.out.println("Station ID: " + StationID);
+        return response;
+    }
+    public static Response deleteWeatherStationInfoResponse() {
+        Response response = given().
+                when().
+                queryParam(apiKey,apiValue).
+                body(deleteWeatherStationInfoObject()).
+                contentType(json_contentType).
+                log().all().
+                delete(WeatherAPI_baseURL + "/data/3.0/stations" + StationID).
+                then().
+                log().all().
+                extract().response();
+        StationID = response.jsonPath().getString("ID");
+        System.out.println("Station ID: " + StationID);
+        return response;
+    }
 
 
 }

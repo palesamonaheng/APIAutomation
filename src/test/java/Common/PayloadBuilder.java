@@ -4,6 +4,8 @@ import org.json.simple.JSONObject;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
+import static Common.RequestBuilder.StationID;
+
 public class PayloadBuilder {
     public static JSONObject createEmployeeObject() {
         JSONObject jsonObject = new JSONObject();
@@ -36,6 +38,16 @@ public class PayloadBuilder {
         jsonObject.put("latitude", 37.76);
         jsonObject.put("longitude", -122.43);
         jsonObject.put("altitude", 150);
+        return jsonObject;
+    }
+    public static JSONObject updateWeatherStationInfoObject() {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("ID", StationID);
+        return jsonObject;
+    }
+    public static JSONObject deleteWeatherStationInfoObject() {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("ID", StationID);
         return jsonObject;
     }
 
