@@ -13,7 +13,8 @@ import static org.hamcrest.core.StringContains.containsStringIgnoringCase;
 @Feature("Weather API")
 @Story("Register Weather Station")
 public class test {
-
+    @Description("As an api user i want to register weather station")
+    @Severity(SeverityLevel.CRITICAL)
     public void registerWeatherStationTests() {
         registerWeatherStationResponse().
                 then().
