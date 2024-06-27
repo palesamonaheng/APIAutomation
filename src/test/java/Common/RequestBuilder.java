@@ -320,6 +320,7 @@ public class RequestBuilder {
                 then().
                 log().all().
                 extract().response();
+        StationID = response.jsonPath().getString("ID");
         return response;
     }
 
@@ -327,15 +328,12 @@ public class RequestBuilder {
                 Response response = given().
                 when().
                 queryParam(apiKey,apiValue).
-               //body(getNewlyRegisteredWeatherStationIDObject()).
                 contentType(json_contentType).
                 log().all().
-                get(WeatherAPI_baseURL + "/data/3.0/stations").
+                get(WeatherAPI_baseURL + "/data/3.0/stations/" + StationID).
                 then().
                 log().all().
                 extract().response();
-        StationID = response.jsonPath().getString("ID");
-        System.out.println("Station ID: " + StationID);
         return response;
     }
 
@@ -346,29 +344,28 @@ public class RequestBuilder {
                 body(updateWeatherStationInfoObject()).
                 contentType(json_contentType).
                 log().all().
-                put(WeatherAPI_baseURL + "/data/3.0/stations").
+                put(WeatherAPI_baseURL + "/data/3.0/stations/" + StationID).
                 then().
                 log().all().
                 extract().response();
-        StationID = response.jsonPath().getString("ID");
-        System.out.println("Station ID: " + StationID);
+        //StationID = response.jsonPath().getString("ID");
         return response;
     }
     public static Response deleteWeatherStationInfoResponse() {
         Response response = given().
                 when().
                 queryParam(apiKey,apiValue).
-                body(deleteWeatherStationInfoObject()).
+                //body(deleteWeatherStationInfoObject()).
                 contentType(json_contentType).
                 log().all().
-                delete(WeatherAPI_baseURL + "/data/3.0/stations" + StationID).
+                delete(WeatherAPI_baseURL + "/data/3.0/stations/" + StationID).
                 then().
                 log().all().
                 extract().response();
-        StationID = response.jsonPath().getString("ID");
-        System.out.println("Station ID: " + StationID);
-        return response;
+        //StationID = response.jsonPath().getString("ID");
+           return response;
     }
+    /*
     public static Response negativeRegisterWeatherStationResponse() {
               Response response = given().
                 when().
@@ -381,5 +378,5 @@ public class RequestBuilder {
                 log().all().
                 extract().response();
         return response;
-    }
+    }*/
 }

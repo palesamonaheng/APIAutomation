@@ -38,7 +38,7 @@ public class CommonTestData {
     public static int register_Weather_Station = 201;
     public static int get_Newly_Registered_Weather_Station = 200;
     public static int update_Weather_Station_Info = 200;
-    public static int delete_Weather_Station_Info = 200;
+    public static int delete_Weather_Station_Info = 204;
     public static int negative_Register_Weather_Station_Info = 400;
     public static int invalid_APIKey_Weather_Registration = 400;
 

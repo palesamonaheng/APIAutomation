@@ -56,37 +56,33 @@ public class PayloadBuilder {
         jsonObject.put("email", "peter@klaven");
         return jsonObject;
     }
-  //START OF DOGS API PAYLOADS
-
 
     //STARTING WEATHER API PAYLOADS
     public static JSONObject registerWeatherStationObject() {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("external_id", "SF_TEST002");
-        jsonObject.put("name", "Group 2 Station");
+        jsonObject.put("name", "Registered Weather Station 1");
         jsonObject.put("latitude", 37.76);
         jsonObject.put("longitude", -122.43);
         jsonObject.put("altitude", 150);
         System.out.println("API key: " + apiKey);
         System.out.println("API key value: " + apiValue);
         return jsonObject;
-    }/*
-    public static JSONObject getNewlyRegisteredWeatherStationIDObject() {
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("ID", StationID);
-        return jsonObject;
-    }*/
-
+    }
     public static JSONObject updateWeatherStationInfoObject() {
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("ID", StationID);
+        jsonObject.put("external_id", "SF_TEST002");
+        jsonObject.put("name", "Group 3 Station");
+        jsonObject.put("latitude", 37.76);
+        jsonObject.put("longitude", -122.43);
+        jsonObject.put("altitude", 150);
         return jsonObject;
-    }
+    }/*
     public static JSONObject deleteWeatherStationInfoObject() {
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("ID", StationID);
+        //jsonObject.put("ID", StationID);
         return jsonObject;
-    }
+    }/*
     public static JSONObject negativeRegisterWeatherStationObject() {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("external_id", " ");
@@ -96,5 +92,5 @@ public class PayloadBuilder {
         jsonObject.put("longitude", "-122.43");
         jsonObject.put("altitude", "150");
         return jsonObject;
-    }
+    }*/
 }

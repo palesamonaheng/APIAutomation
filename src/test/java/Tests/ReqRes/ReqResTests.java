@@ -66,7 +66,7 @@ public class ReqResTests {
                 assertThat().
                 statusCode(Update_Single_User_Success_Status_Code).
         body("name", containsStringIgnoringCase("Nkosi")).
-        body("job", containsStringIgnoringCase("Update Testing")).
+        body("job", containsStringIgnoringCase("Group 3 Station")).
         body("updatedAt", notNullValue());
 
     }
