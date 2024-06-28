@@ -5,8 +5,7 @@ import org.testng.annotations.Test;
 
 import java.util.Locale;
 
-import static Common.AuthorizationCredentials.apiKey;
-import static Common.AuthorizationCredentials.apiValue;
+import static Common.AuthorizationCredentials.*;
 import static Common.BasePaths.*;
 import static Common.ContentTypes.json_contentType;
 import static Common.PayloadBuilder.*;
@@ -365,12 +364,12 @@ public class RequestBuilder {
         //StationID = response.jsonPath().getString("ID");
            return response;
     }
-    /*
-    public static Response negativeRegisterWeatherStationResponse() {
+
+    public static Response negativeRegisterWeatherStationInvalidExternalIDResponse() {
               Response response = given().
                 when().
                 queryParam(apiKey,apiValue).
-                body(negativeRegisterWeatherStationObject()).
+                body(negativeRegisterWeatherStationInvalidExternalIDObject()).
                 contentType(json_contentType).
                 log().all().
                 post(WeatherAPI_baseURL + "/data/3.0/stations").
@@ -378,5 +377,19 @@ public class RequestBuilder {
                 log().all().
                 extract().response();
         return response;
-    }*/
+    }
+    public static Response negativeRegisterWeatherStationInvalidAPIKeyResponse() {
+        Response response = given().
+                when().
+                queryParam(negativeapiKey,negativeapiValue).
+                body(negativeRegisterWeatherStationInvalidAPIKeyObject()).
+                contentType(json_contentType).
+                log().all().
+                post(WeatherAPI_baseURL + "/data/3.0/stations").
+                then().
+                log().all().
+                extract().response();
+        StationID = response.jsonPath().getString("ID");
+        return response;
+    }
 }

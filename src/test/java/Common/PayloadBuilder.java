@@ -4,8 +4,7 @@ import org.json.simple.JSONObject;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
-import static Common.AuthorizationCredentials.apiKey;
-import static Common.AuthorizationCredentials.apiValue;
+import static Common.AuthorizationCredentials.*;
 import static Common.RequestBuilder.APIKey;
 import static Common.RequestBuilder.StationID;
 
@@ -77,13 +76,8 @@ public class PayloadBuilder {
         jsonObject.put("longitude", -122.43);
         jsonObject.put("altitude", 150);
         return jsonObject;
-    }/*
-    public static JSONObject deleteWeatherStationInfoObject() {
-        JSONObject jsonObject = new JSONObject();
-        //jsonObject.put("ID", StationID);
-        return jsonObject;
-    }/*
-    public static JSONObject negativeRegisterWeatherStationObject() {
+    }
+    public static JSONObject negativeRegisterWeatherStationInvalidExternalIDObject() {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("external_id", " ");
         jsonObject.put("name", "Group 2 Station");
@@ -92,5 +86,16 @@ public class PayloadBuilder {
         jsonObject.put("longitude", "-122.43");
         jsonObject.put("altitude", "150");
         return jsonObject;
-    }*/
+    }
+    public static JSONObject negativeRegisterWeatherStationInvalidAPIKeyObject() {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("external_id", "SF_TEST002");
+        jsonObject.put("name", "Registered Weather Station 1");
+        jsonObject.put("latitude", 37.76);
+        jsonObject.put("longitude", -122.43);
+        jsonObject.put("altitude", 150);
+        System.out.println("API key: " + negativeapiKey);
+        System.out.println("API key value: " + negativeapiValue);
+        return jsonObject;
+    }
 }

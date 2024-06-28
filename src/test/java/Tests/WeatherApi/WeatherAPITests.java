@@ -61,15 +61,25 @@ public class WeatherAPITests {
                 assertThat().
                 statusCode(delete_Weather_Station_Info);
                 //body("id", notNullValue());
-    }/*
-    @Test(priority = 4 )
+    }
+    @Test(priority = 4)
     @Description("As an api user i want to delete the newly registered weather station info")
     @Severity(SeverityLevel.NORMAL)
-    public void negativeRegisterWeatherStationTests() {
-        negativeRegisterWeatherStationResponse().
+    public void negativeRegisterWeatherStationInvalidExternalIDTests() {
+        negativeRegisterWeatherStationInvalidExternalIDResponse().
                 then().
                 assertThat().
-                statusCode(negative_Register_Weather_Station_Info).
-                body("id", notNullValue());
-    }*/
+                statusCode(negative_Invalid_ExternalID_Register_Weather_Station_Info);
+                //body("id", notNullValue());
+    }
+    @Test(priority = 5)
+    @Description("As an api user i want to delete the newly registered weather station info")
+    @Severity(SeverityLevel.NORMAL)
+    public void negativeRegisterWeatherStationInvalidAPIKeyTests() {
+        negativeRegisterWeatherStationInvalidAPIKeyResponse().
+                then().
+                assertThat().
+                statusCode(negative_invalid_APIKey_Weather_Registration);
+        //body("id", notNullValue());
+    }
 }
