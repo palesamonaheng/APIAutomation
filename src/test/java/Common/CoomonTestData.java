@@ -9,7 +9,9 @@ public class CoomonTestData {
 
     public static int get_invalid_Status_Code = 401;
 
-    public static int get_stations_Status_Code = 200;
+    public static int get_Status_Code_200 = 200;
+
+    public static int no_content_found = 204;
 
 
 }

@@ -1,5 +1,7 @@
 package Common;
 
+import io.restassured.response.Response;
+
 import java.net.Authenticator;
 
 import static Common.ContentTypes.json_contentType;
@@ -11,6 +13,6 @@ public class BasePaths {
 
    public static String appid = "ca497274c14aef3abcab96bf314e8736";
    public static String apiKey = "ca497274c14aef3abcab96bf314e8736";
-
+   public static String  StationID ;
 
 }
