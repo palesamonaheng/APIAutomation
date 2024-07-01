@@ -13,6 +13,7 @@ public class BasePaths {
 
    public static String appid = "ca497274c14aef3abcab96bf314e8736";
    public static String apiKey = "ca497274c14aef3abcab96bf314e8736";
+
    public static String  StationID ;
 
 }

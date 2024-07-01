@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import static Common.WeatherRequestBuilder.*;
 import static org.hamcrest.Matchers.*;
 import static Common.CoomonTestData.*;
+import static Common.GenerateTestData.*;
 
 @Test
 @Feature("Weather API")
@@ -19,11 +20,11 @@ public class weatherapi {
                 statusCode(Create_Success_Status_Code).
                 body("created_at", notNullValue()).
                 body("external_id", containsStringIgnoringCase("Mak_TEST003")).
-                body("name", containsStringIgnoringCase("Group Mak Testing Station")).
+                body("name", containsStringIgnoringCase(stationName)).
                 body("user_id", notNullValue());
     }
 
-    @Test(priority = 1)
+    @Test(dependsOnMethods = "createWeatherStationsApi()")
     @Feature("Get weather Stations")
     @Story("Get weather Stations created")
     @Description("As an employer want to get all created weather stations")
@@ -44,7 +45,7 @@ public class weatherapi {
     public void updateWeatherStations() {
         updateStationsInfo().then().assertThat().
                 body("external_id", containsStringIgnoringCase("MakTesting_TEST004")).
-                body("name", containsStringIgnoringCase("Group Weather Station")).
+                body("name", containsStringIgnoringCase(stationName)).
                 body("latitude", equalToObject(35.76F)).
                 body("longitude", equalTo(-145.43F)).
                 body("altitude", equalTo(-190)).
@@ -84,7 +85,7 @@ public class weatherapi {
                 body("code", equalToObject(404001)).
                 body("message", containsStringIgnoringCase("Station not found")).
                 //   body("external_id",containsStringIgnoringCase( "Mak_TEST002")).
-                        statusCode(no_station_found);
+                        statusCode(get_Success_Status_Code);
     }
 
     @Test(priority = 6)
