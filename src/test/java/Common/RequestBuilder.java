@@ -69,10 +69,9 @@ public class RequestBuilder {
         Response response = given().
                 when().
                 queryParam(apiKey,apiValue).
-                body(getNewlyRegisteredWeatherStationInfoObject()).
                 contentType(json_contentType).
                 log().all().
-                post(WeatherAPI_baseURL + "/data/3.0/stations/" + StationID).
+                get(WeatherAPI_baseURL + "/data/3.0/stations/" + StationID).
                 then().
                 log().all().
                 extract().response();

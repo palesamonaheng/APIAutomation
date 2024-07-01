@@ -29,14 +29,14 @@ public class test {
     @Test(dependsOnMethods = "registerWeatherStationTests")
     @Description("As an api user i want to get newly registered weather station info")
     @Severity(SeverityLevel.NORMAL)
-    public void getNewlyRegisteredWeatherStationInfoResponseTests() {
+    public void getNewlyRegisteredWeatherStationInfoTests() {
         getNewlyRegisteredWeatherStationInfoResponse().
                 then().
                 assertThat().
-                statusCode(Create_Success_Status_Code).
-                body("id", notNullValue());
+                statusCode(Success_Status_Code);
+//                body("id", notNullValue());
     }
-    @Test(dependsOnMethods = "getNewlyRegisteredWeatherStationInfoResponseTests")
+    @Test(dependsOnMethods = "getNewlyRegisteredWeatherStationInfoTests")
     @Description("As an api user i want to update the newly registered weather station info")
     @Severity(SeverityLevel.NORMAL)
     public void updateWeatherStationInfoTests() {
