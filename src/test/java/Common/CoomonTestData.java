@@ -13,5 +13,7 @@ public class CoomonTestData {
 
     public static int no_content_found = 204;
 
+    public static int no_station_found =404;
+    public static int bad_request=400;
 
 }

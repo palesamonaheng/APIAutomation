@@ -89,5 +89,37 @@ public class WeatherRequestBuilder {
                 log().all().
                 extract().response();
     }
+
+    public static Response getDeletedStations() {
+        System.out.println("Station ID updated info" + StationID);
+        return given().
+                header("Authorization", apiKey).
+                queryParam("appid", apiKey).
+                contentType(json_contentType).
+                when().
+                log().all().
+                get(Weather_baseURL+"/data/3.0/stations/"+StationID).
+                then().
+                log().all().
+                extract().response();
+
+    }
+
+    public static Response createWeatherStationEmptyExternalID() {
+        Response response = given().header("Authorization", apiKey).
+                queryParam("appid", apiKey).
+                when().
+                body(createWeatherWithoutExternalID()).
+                contentType(json_contentType).
+                log().all().
+                post( Weather_baseURL+"/data/3.0/stations").
+                then().
+                log().all().
+                extract().response();
+        StationID= response.jsonPath().getString("ID");
+        System.out.println("Station ID created" + StationID);
+
+        return response;
+    }
 }
 
