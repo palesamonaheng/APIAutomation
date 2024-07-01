@@ -88,8 +88,8 @@ public class weatherapi {
     }
 
     @Test(priority = 6)
-    @Feature("Weather API")
-    @Story("Create new weather station")
+    @Feature("Weather API Empty external_id ")
+    @Story("Create new weather station without external_id")
     public class registerWithoutExternal_id {
         @Description("As an api user i want to validate error message when creating weather station without external_id ")
         @Severity(SeverityLevel.CRITICAL)
