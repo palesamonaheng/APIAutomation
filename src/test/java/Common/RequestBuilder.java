@@ -1,18 +1,18 @@
 package Common;
 
-import io.qameta.allure.Description;
 import io.restassured.response.Response;
-import org.json.simple.JSONObject;
-import org.testng.annotations.Test;
 
-import static Common.BasePaths.DogsApi_BaseUrl;
-import static Common.BasePaths.ReqRes_baseURL;
+import static Common.BasePaths.*;
 import static Common.ContentTypes.json_contentType;
 import static Common.PayloadBuilder.*;
+import static Common.QuerryParameterBuilder.ApiKey;
+import static Common.QuerryParameterBuilder.apiValue;
 import static io.restassured.RestAssured.*;
 
 public class RequestBuilder {
     public static String EmployeeID;
+    public static String StationID;
+
 
     public static Response createEmployeeResponse() {
         Response response = given().
@@ -215,6 +215,60 @@ public class RequestBuilder {
                 extract().response();
         return response;
     }
+//WeatherApi RequestBuilder
 
+    public static Response registerWeatherStationResponse(){
+        Response response = given().
+                when().
+                queryParam(ApiKey,apiValue).
+                body(registerWeatherStationObject()).
+                contentType(json_contentType).
+                log().all().
+                post(WeatherApi_baseUrl + "/data/3.0/stations").
+                then().
+                log().all().
+                extract().response();
+        StationID = response.jsonPath().getString("ID");
+        return response;
+    }
+
+    public static Response getRegisteredWeatherStationResponse(){
+        Response response = given().
+                when().
+                queryParam(ApiKey,apiValue).
+                contentType(json_contentType).
+                log().all().
+                get(WeatherApi_baseUrl + "/data/3.0/stations/" + StationID).
+                then().
+                log().all().
+                extract().response();
+        return response;
+    }
+
+    public static Response updateWeatherStationResponse(){
+        Response response = given().
+                when().
+                queryParam(ApiKey,apiValue).
+                body(updateWeatherStationObject()).
+                contentType(json_contentType).
+                log().all().
+                put(WeatherApi_baseUrl + "/data/3.0/stations/" + StationID).
+                then().
+                log().all().
+                extract().response();
+        return response;
+
+    }
+
+    public static Response deleteWeatherStationResponse(){
+        Response response = given().
+                when().
+                queryParam(ApiKey,apiValue).
+                delete(WeatherApi_baseUrl + "/data/3.0/stations/" + StationID).
+                then().
+                log().all().
+                extract().response();
+        return response;
+    }
         }
 

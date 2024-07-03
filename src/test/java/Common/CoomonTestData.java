@@ -21,4 +21,11 @@ public class CoomonTestData {
     public static int GetDogsBySubBreed_Success_Status_Code = 200;
     public static int GetBreedslist_Success_Status_Code = 404;
 
+    //WeatherApi Success Status Codes
+
+    public static int WeatherApi_Success_Status_Code = 201;
+    public static int WeatherStation_Success_Status_Code = 200;
+    public static int DeleteWeatherStation_Success_Status_Code = 204;
+
+
 }
