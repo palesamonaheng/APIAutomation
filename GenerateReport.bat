@@ -1,1 +1,1 @@
-allure serve C:\AutomationBootCampWithKK\ApiAutomation\2ndGroup2024APIAutomation\allure-results
+allure serve C:\Users\pmonaheng\IdeaProjects\2ndGroup2024APIAutomation\allure-results
