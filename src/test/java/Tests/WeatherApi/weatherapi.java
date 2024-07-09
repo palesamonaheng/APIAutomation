@@ -19,7 +19,8 @@ public class weatherapi {
                 assertThat().
                 statusCode(Create_Success_Status_Code).
                 body("created_at", notNullValue()).
-                body("external_id", containsStringIgnoringCase("Mak_TEST003")).
+               // body("longitude", contains(logituteValue)).
+                body("external_id", containsStringIgnoringCase(external_id_name)).
                 body("name", containsStringIgnoringCase(stationName)).
                 body("user_id", notNullValue());
     }
@@ -44,9 +45,9 @@ public class weatherapi {
     @Severity(SeverityLevel.BLOCKER)
     public void updateWeatherStations() {
         updateStationsInfo().then().assertThat().
-                body("external_id", containsStringIgnoringCase("MakTesting_TEST004")).
+                body("external_id", containsStringIgnoringCase(external_id_name)).
                 body("name", containsStringIgnoringCase(stationName)).
-                body("latitude", equalToObject(35.76F)).
+                body("latitude", equalToObject(38.76F)).
                 body("longitude", equalTo(-145.43F)).
                 body("altitude", equalTo(-190)).
                 statusCode(get_Status_Code_200);
