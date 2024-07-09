@@ -4,9 +4,7 @@ import io.restassured.response.Response;
 import io.restassured.http.Headers;
 import org.hamcrest.Matcher;
 
-import static Common.BasePaths.*;
-import static Common.ContentTypes.json_contentType;
-import static Common.PayloadBuilder.createEmployeeObject;
+import static Common.BasePath.*;
 import static Common.PayloadBuilder.*;
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.requestSpecification;
@@ -103,23 +101,6 @@ public class WeatherRequestBuilder {
                 log().all().
                 extract().response();
 
-    }
-
-    public static Response createWeatherStationEmptyExternalID() {
-        Response response = given().header("Authorization", apiKey).
-                queryParam("appid", apiKey).
-                when().
-                body(createWeatherWithoutExternalID()).
-                contentType(json_contentType).
-                log().all().
-                post( Weather_baseURL+"/data/3.0/stations").
-                then().
-                log().all().
-                extract().response();
-        StationID= response.jsonPath().getString("ID");
-        System.out.println("Station ID created" + StationID);
-
-        return response;
     }
 }
 

@@ -1,9 +1,6 @@
 package Common;
 
-import groovy.lang.GString;
-
-public class CoomonTestData {
-
+public class StatusCodesData {
     public static int Create_Success_Status_Code = 201;
     public static int get_Success_Status_Code = 404;
 
@@ -13,7 +10,5 @@ public class CoomonTestData {
 
     public static int no_content_found = 204;
 
-   // public static int no_station_found =404;
     public static int bad_request=400;
-
 }

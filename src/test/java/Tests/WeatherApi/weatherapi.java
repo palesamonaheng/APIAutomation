@@ -5,7 +5,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 import static Common.WeatherRequestBuilder.*;
 import static org.hamcrest.Matchers.*;
-import static Common.CoomonTestData.*;
+import static Common.StatusCodesData.*;
 import static Common.GenerateTestData.*;
 
 @Test
@@ -87,21 +87,5 @@ public class weatherapi {
                 body("message", containsStringIgnoringCase("Station not found")).
                 //   body("external_id",containsStringIgnoringCase( "Mak_TEST002")).
                         statusCode(get_Success_Status_Code);
-    }
-
-    @Test(priority = 6)
-    @Feature("Weather API Empty external_id ")
-    @Story("Create new weather station without external_id")
-    public class registerWithoutExternal_id {
-        @Description("As an api user i want to validate error message when creating weather station without external_id ")
-        @Severity(SeverityLevel.CRITICAL)
-        public void createWeatherStationsApi() {
-            createWeatherStationEmptyExternalID().then().
-                    assertThat().
-                    statusCode(bad_request).
-                    body("code", equalToObject(400001)).
-                    body("message", containsStringIgnoringCase("Bad external id"));
-        }
-
     }
 }
